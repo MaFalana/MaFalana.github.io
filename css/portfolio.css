@@ -14,6 +14,7 @@ MODIFICATION HISTORY:
 {
 	box-sizing: border-box;
   	scroll-behavior: smooth;
+	font-family: "montserrat", sans-serif;
 }
 
 #bg
@@ -25,10 +26,6 @@ MODIFICATION HISTORY:
 }
 
 /*Contact Me Form*/
-*
-{
-	font-family: "montserrat", sans-serif;	
-}
 
 #Contact
 {
@@ -46,7 +43,6 @@ MODIFICATION HISTORY:
 {
 	width: 100px;
 	height: 10px;
-	/* background: #704A10; */
 	background: #007D00;
 	margin: 40px auto;
 }
