@@ -164,7 +164,7 @@ textarea.contact-form-text
 
 @media(max-width: 900px) 
 {
-    #work__box 
+    #Project 
 	{
         align-items: initial;
         flex-direction: column-reverse;
