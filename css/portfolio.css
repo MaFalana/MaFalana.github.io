@@ -150,3 +150,23 @@ textarea.contact-form-text
         margin: 0 0 0 10rem;
     }
 }
+
+
+/* --------------------------------------- */
+/* ----- Work ----- */
+/* --------------------------------------- */
+
+#Project
+{
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width: 900px) 
+{
+    #work__box 
+	{
+        align-items: initial;
+        flex-direction: column-reverse;
+    }
+}
