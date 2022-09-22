@@ -25,10 +25,19 @@
             <div id="Contact">
                 <h2>Get in Touch</h2>
                 <form class="contact_form" action="">
-                    <input type="text" class="contact-form-text" name="firstName" placeholder="First Name"/>
-                    <input type="text" class="contact-form-text" name="lastName" placeholder="Last Name"/>
+                    <div class="row">
+
+                        <div class="col">
+                            <input type="text" class="contact-form-text" name="firstName" placeholder="First Name"/>
+                        </div>
+
+                        <div class="col">
+                            <input type="text" class="contact-form-text" name="lastName" placeholder="Last Name"/>
+                        </div> 
+                        
+                    </div>
                     <input type="text" class="contact-form-text" name="Email" placeholder="Email" required/> 
-                    <textarea class="contact-form-text" name="message" placeholder="Message" required></textarea>
+                    <textarea class="contact-form-text" name="message" placeholder="Message"></textarea>
                     <input type="submit" class="contact-form-btn" name = "Send" value="Send">
                 </form>
             </div>
