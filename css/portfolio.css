@@ -20,9 +20,7 @@ MODIFICATION HISTORY:
 #bg
 {
 	background-color: #242E41;
-	width: 100%;
-	max-width: 100%;
-	max-height: 100%;	
+	
 }
 
 
@@ -65,9 +63,15 @@ MODIFICATION HISTORY:
 }
 
 
+/* --------------------------------------- */
+/* ----- Navigation Bar ----- */
+/* --------------------------------------- */
 
 
-/*Contact Me Form*/
+
+/* --------------------------------------- */
+/* ----- Contact Form ----- */
+/* --------------------------------------- */
 
 #Contact
 {
@@ -156,11 +160,7 @@ textarea.contact-form-text
 /* ----- Work ----- */
 /* --------------------------------------- */
 
-#Project
-{
-    display: flex;
-    align-items: center;
-}
+
 
 @media(max-width: 900px) 
 {
@@ -177,4 +177,233 @@ textarea.contact-form-text
     /* list-style-type: square; */
     list-style-position: inside;
     margin-bottom: var(--gutter-normal);
+}
+
+
+.Project 
+{  
+	display: flex;
+	flex-wrap: wrap;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+	
+  }
+
+.Project--visible 
+{
+	opacity: 1;
+}
+
+.Description
+{
+	width: auto; /* change this value to set the desired width */
+	height: auto; /* change this value to set the desired height */
+	border-radius: 10px; /* change this value to set the desired radius of rounded corners */
+	flex: 1 1 50%;
+	padding: 20px;
+	box-sizing: border-box;
+	background: white;
+	
+}
+
+  .image 
+  {
+	
+  }
+  
+.History 
+{
+	width: auto; /* change this value to set the desired width */
+	height: auto; /* change this value to set the desired height */
+	border-radius: 10px; /* change this value to set the desired radius of rounded corners */
+	flex: 1 1 0 100%;
+	padding: 20px;
+	box-sizing: border-box;
+	background: white;
+}
+
+/* --------------------------------------- */
+/* ----- Project/ Carousel ----- */
+/* --------------------------------------- */
+
+.Carousel
+{
+	position: relative;
+	flex: 1 1 50%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.Carousel-item
+{
+	height: 300px;
+	background: grey;
+	padding: 1-em;
+	font-family: 'QuickSand', sans-serif;
+	font-weight: bold;
+	font-size: 2-em;
+	color: white;
+	display: none;
+}
+
+.Carousel-item--selected
+{
+	display: block;
+}
+
+.Carousel-nav
+{
+	width: 100%;
+	padding: 20px 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+}
+
+.Carousel-btn
+{
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	background: rgba(255,255,255,0.2); /*opaque*/
+	border-radius: 50%; /*makes it a circle*/
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.Carousel-btn--selected
+{
+	background: rgba(255,255,255,0.5); /* slightly less opaque*/
+}
+
+
+.project-btn
+{
+	float: left;
+	border: 0;
+	background: #007D00;
+	color: #fff;
+	padding: 12px 50px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.project-btn:hover
+{
+	background: #00B300;
+}
+
+
+/* --------------------------------------- */
+/* ----- About Me ----- */
+/* --------------------------------------- */
+
+.About:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+
+.Bio 
+{
+  float: left;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: white;
+}
+
+.Resume 
+{
+	float: right;
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.about-btn
+{
+	float: left;
+	border: 0;
+	background: #007D00;
+	color: #fff;
+	padding: 12px 50px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.about-btn:hover
+{
+	background: #00B300;
+}
+
+.wrapper
+{
+	margin-top: 10%;	
+}
+.wrapper h1
+{
+	font-family: 'Allura', sans-serif;
+	font-size: 52px;
+	margin-bottom: 60px;
+	text-align: center;
+	color: white;
+}
+.team
+{
+	display: flex;
+	text-align: center;
+	width: auto;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.team .team_member
+{
+	background: #fff;
+	margin: 5px;
+	margin-bottom: 50px;
+	width: 300px;
+	padding: 20px;
+	line-height: 20px;
+	color: #8e8b8b;
+	position: relative;
+}
+.team .team_member h3
+{
+	color: #704A10;
+	font size: 26px;
+	margin-top: 50px; /*Makes space for image tag*/
+}
+.team .team_member p.role
+{
+	color: #A36717;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 12px;
+}
+.team .team_member .team_img
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position:absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #fff;
+	
+}
+.team .team_member .team_img img
+{
+	width: 100px;
+	height: 100px;
+	padding: 0px;
+	clip-path: circle();
 }
