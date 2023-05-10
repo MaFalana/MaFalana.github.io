@@ -146,7 +146,7 @@ projects.forEach(project => {
     const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "");
     const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "");
     const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "");
-    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS");
+    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://mafalana.github.io/Mahjong/");
     makeProjects();
     displayProjects();
 
