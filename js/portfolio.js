@@ -15,13 +15,14 @@ $(document).ready(function()
 
     class project
     {
-        constructor(title, description, image, tools, link)
+        constructor(title, description, image, tools, link, commits)
         {
             this.title = title;
             this.description = description;
             this.image = image;
             this.tools = tools
             this.link = link;
+            this.commits = commits;
             projects.push(this);
         }
     }
@@ -101,8 +102,23 @@ $(document).ready(function()
             html += "</div>" //End of Image Section
 
             html += "<div class='History'>" // History Section
-            html += "<iframe src='https://api.github.com/repos/MaFalana/LEDGER-/commits' title='description'></iframe>"
-            html += "</div>" //End of History Section
+            //html += "<iframe src='https://api.github.com/repos/MaFalana/LEDGER-/commits' title='description'></iframe>"
+            fetch(project.commits)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                html += "<ul>";
+                data.forEach(commit => {
+                    html += "<li>";
+                    html += "<strong>" + commit.commit.author.name + "</strong>: ";
+                    html += commit.commit.message;
+                    html += "</li>";
+                });
+                html += "</ul>";
+                html += "</div>"; // End of History Section
+            })
+            .catch(error => console.error(error))
+           // html += "</div>" //End of History Section
 
             html += "</div>" //End of Project Card
 
@@ -142,11 +158,12 @@ projects.forEach(project => {
     }
 
     const p0 = new project("Test","Filler words",["images/1.png","images/4.png","images/5.png"],["Swift","SQL","API"], "");
-    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","Database Design","Core Data","Xcode","API Connections","Web Scraping"], "https://testflight.apple.com/join/947cRtnp");
-    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "");
-    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "");
-    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "");
-    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://mafalana.github.io/Mahjong/");
+    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","Database Design","Core Data","Xcode","API Connections","Web Scraping"], "https://testflight.apple.com/join/947cRtnp","https://api.github.com/repos/MaFalana/LEDGER-/commits");
+    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "","https://api.github.com/repos/MaFalana/CS-Paint/commits");
+    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "", "https://api.github.com/repos/MaFalana/What-s-That-Color-/commits");
+    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "","https://api.github.com/repos/MaFalana/Kazaam/commits");
+    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://mafalana.github.io/Mahjong/", "https://api.github.com/repos/MaFalana/Mahjong/commits/master");
+    const p6 = new project("Mytunes","Server-side music streaming application",[],["Php","Html","CSS","OOP"], "","https://api.github.com/repos/MaFalana/Mytunes/commits/master");
     makeProjects();
     displayProjects();
 
