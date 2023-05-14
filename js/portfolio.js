@@ -15,18 +15,18 @@ $(document).ready(function()
 
     class project
     {
-        constructor(title, description, image, tools, link, commits)
+        constructor(title, description, image, tools, git, demo)
         {
             this.title = title;
             this.description = description;
             this.image = image;
             this.tools = tools
-            this.link = link;
-            this.commits = commits;
+            this.git = git;
+            this.demo = demo;
             projects.push(this);
         }
     }
-
+      
 
 
     function makeCarousel(carousel)
@@ -67,6 +67,38 @@ $(document).ready(function()
         buttons[0].classList.add('Carousel-btn--selected');
     }
 
+    function displayDescription(Title, Description, Tools, Git, Demo)
+    {
+        var html = "<div id='project-info' class='Description'>" //Project Description Section
+        html += "<h1>" + Title + "</h1>"
+        html += "<p>" + Description + "</p>"
+        html += " <ul>" // Tools Section
+        for(var i = 0; i < Tools.length; i++)
+        {
+            html += "<li>" + Tools[i] + "</li>"
+        }
+        html += "</ul>" //End of Tools Section
+        html += "<a href='"+ Git +"'>Github</a>"
+            html += "<a href='"+ Demo +"'>Demo</a>"
+        html += "</div>" //End of Project Description Section
+
+        return html;
+
+    }
+
+    function displayImages(Image)
+    {
+        var html = "<div id='project-pic' class='Carousel'>" // Image Section
+        for(var j = 0; j < Image.length; j++)
+        {
+            html += "<img src='" + Image[j] + "' class='Carousel-item' alt='Project "+ j +"' />"
+        }
+        
+        html += "</div>" //End of Image Section
+
+        return html;
+    }
+
     function makeProjects()
     {
         for(var i = 0; i < projects.length; i++)
@@ -75,54 +107,13 @@ $(document).ready(function()
 
             var html = `<div id="Project-${i}" class="Project">`;
 
-            
-            html += "<div id='project-info' class='Description'>" //Project Description Section
+            html += displayDescription(project.title, project.description, project.tools, project.git, project.demo);
 
-            
-            html += "<h3>" + project.title + "</h3>"
-            html += "<p>" + project.description + "</p>"
-
-            
-            html += " <ul>" // Tools Section
-
-            for(var j = 0; j < project.tools.length; j++)
-            {
-                html += "<li>" + project.tools[j] + "</li>"
-            }
-            html += "</ul>" //End of Tools Section
-
-            html += "</div>" //End of Project Description Section
-
-            html += "<div id='project-pic' class='Carousel'>" // Image Section
-            for(var j = 0; j < project.image.length; j++)
-            {
-                html += "<img src='" + project.image[j] + "' class='Carousel-item' alt='Project "+ j +"' />"
-            }
-            
-            html += "</div>" //End of Image Section
-
-            html += "<div class='History'>" // History Section
-            //html += "<iframe src='https://api.github.com/repos/MaFalana/LEDGER-/commits' title='description'></iframe>"
-            fetch(project.commits)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                html += "<ul>";
-                data.forEach(commit => {
-                    html += "<li>";
-                    html += "<strong>" + commit.commit.author.name + "</strong>: ";
-                    html += commit.commit.message;
-                    html += "</li>";
-                });
-                html += "</ul>";
-                html += "</div>"; // End of History Section
-            })
-            .catch(error => console.error(error))
-           // html += "</div>" //End of History Section
+            html += displayImages(project.image);
 
             html += "</div>" //End of Project Card
 
-            html += "<a href="+ project.link +" class='project-btn'>Try it out</a>"
+            
 
             $("#Projects").append(html); //Append to Projects Section
             
@@ -131,39 +122,41 @@ $(document).ready(function()
         }
     }
 
-    function displayProjects()
-    {
+    function displayProjects() {
         const projects = document.querySelectorAll('.Project');
-
+      
         const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5 // when half of the element is visible
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.5 // when half of the element is visible
         };
-
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('Project--visible');
-      observer.unobserve(entry.target);
-    } else {
-      entry.target.classList.remove('Project--visible');
-    }
-  });
-}, options);
-
-projects.forEach(project => {
-  observer.observe(project);
-});
-    }
+      
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('Project--visible');
+              observer.unobserve(entry.target);
+            } else {
+              entry.target.classList.remove('Project--visible');
+            }
+          });
+        }, options);
+      
+        // Observe each .Project element
+        projects.forEach(project => {
+          observer.observe(project);
+        });
+      }
+      
+      
 
     const p0 = new project("Test","Filler words",["images/1.png","images/4.png","images/5.png"],["Swift","SQL","API"], "");
-    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","Database Design","Core Data","Xcode","API Connections","Web Scraping"], "https://testflight.apple.com/join/947cRtnp","https://api.github.com/repos/MaFalana/LEDGER-/commits");
-    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "","https://api.github.com/repos/MaFalana/CS-Paint/commits");
-    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "", "https://api.github.com/repos/MaFalana/What-s-That-Color-/commits");
-    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "","https://api.github.com/repos/MaFalana/Kazaam/commits");
-    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://mafalana.github.io/Mahjong/", "https://api.github.com/repos/MaFalana/Mahjong/commits/master");
-    const p6 = new project("Mytunes","Server-side music streaming application",[],["Php","Html","CSS","API","OOP"], "","https://api.github.com/repos/MaFalana/Mytunes/commits/master");
+    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","OOP","Core Data","Xcode","API","Web Scraping"], "https://github.com/MaFalana/LEDGER-","https://testflight.apple.com/join/947cRtnp");
+    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "https://github.com/MaFalana/CS-Paint","");
+    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "https://github.com/MaFalana/What-s-That-Color-", "");
+    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "https://github.com/MaFalana/Kazaam","");
+    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS", "https://mafalana.github.io/Mahjong/");
+    const p6 = new project("Mytunes","Server-side music streaming application",[],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
     makeProjects();
     displayProjects();
 

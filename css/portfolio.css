@@ -9,17 +9,18 @@ LAST MODIFIED BY: Malik Falana (MF)
 MODIFICATION HISTORY: 
 09/21/2022: Create date
 */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,500,600');
 * 
 {
 	box-sizing: border-box;
   	scroll-behavior: smooth;
-	font-family: "montserrat", sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 #bg
 {
-	background-color: #242E41;
+	/*background-color: #1d60e5;*/
+	background: linear-gradient(rgba(29,96,229, .4), rgba(29,96,229, .1));
 	
 }
 
@@ -30,8 +31,7 @@ MODIFICATION HISTORY:
 
 .header 
 {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('.images/header.jpg');
+    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4));
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -184,10 +184,12 @@ textarea.contact-form-text
 {  
 	display: flex;
 	flex-wrap: wrap;
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 1s ease-in-out;
+	margin-bottom: 200px; /* Adjust the spacing as needed */
+	padding: 20px;
 	
-  }
+}
 
 .Project--visible 
 {
@@ -203,7 +205,47 @@ textarea.contact-form-text
 	padding: 20px;
 	box-sizing: border-box;
 	background: white;
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
+.Description h1
+{
+	text-align: center;
+	padding: 20px 0;
+	border-bottom: 0px solid silver;
+}
+
+.Description a
+{
+	/*float: left;*/
+
+	color: #007D00;
+	background: #fff;
+
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: #007D00;
+
+
+	padding: 12px 50px;
 	
+	cursor: pointer;
+	transition: 0.5s;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-size: 18px;
+  	font-weight: 700;
+  	
+	margin-right: 10px;
+	
+}
+
+.Description a:hover
+{
+	/*background: #00B300;
+	border-color: #00B300;*/
+	color: white;
+	background: #007D00;
 }
 
   .image 
@@ -230,13 +272,14 @@ textarea.contact-form-text
 {
 	position: relative;
 	flex: 1 1 50%;
-	padding: 20px;
-	box-sizing: border-box;
+	/*padding: 2px;*/
+	border: 2px solid;
+	border-radius: 10px;
 }
 
 .Carousel-item
 {
-	height: 300px;
+	height: 400px;
 	background: grey;
 	padding: 1-em;
 	font-family: 'QuickSand', sans-serif;
@@ -278,44 +321,122 @@ textarea.contact-form-text
 }
 
 
-.project-btn
-{
-	float: left;
-	border: 0;
-	background: #007D00;
-	color: #fff;
-	padding: 12px 50px;
-	border-radius: 20px;
-	cursor: pointer;
-	transition: 0.5s;
-}
 
-.project-btn:hover
-{
-	background: #00B300;
-}
 
 
 /* --------------------------------------- */
 /* ----- About Me ----- */
 /* --------------------------------------- */
 
-.About:after {
+.About:after 
+{
 	content: "";
 	display: table;
 	clear: both;
-  }
-
-.Bio 
-{
-  float: left;
-  width: 50%;
-  height: auto;
-  border-radius: 10px;
-  padding: 20px;
-  box-sizing: border-box;
-  background: white;
 }
+
+input[type="submit"]
+{
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: rgba(67,67,238,1);
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="submit"]:hover
+{
+  border-color: rgba(67,67,238,1);
+  transition: .5s;
+}
+
+.About
+{
+	padding: 20px;
+}
+
+.About div
+{
+	margin: 0 0 20px 0;
+	width: auto; /* change this value to set the desired width */
+	height: auto; /* change this value to set the desired height */
+	border-radius: 10px; /* change this value to set the desired radius of rounded corners */
+	flex: 1 1 50%;
+	padding: 20px;
+	background: white;
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+	
+}
+
+.About img
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position:relative;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #fff;
+	padding: 0px;
+	clip-path: circle();
+}
+
+.About h1
+{
+	text-align: center;
+}
+
+.About p
+{
+	font-size: 18px;
+	line-height: 30px;
+	color: #8e8b8b;
+	text-align: center;
+}
+
+.About p.role
+{
+	color: gold;
+}
+
+.About a
+{
+	color: #007D00;
+	background: #fff;
+
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: #007D00;
+
+
+	padding: 12px 50px;
+	
+	cursor: pointer;
+	transition: 0.5s;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-size: 18px;
+  	font-weight: 700;
+  	
+	margin-right: 10px;
+}
+
+.About a:hover
+{
+	color: white;
+	background: #007D00;
+}
+
+
+/* --------------------------------------- */
+/* ----- Resume ----- */
+/* --------------------------------------- */
 
 .Resume 
 {
@@ -327,83 +448,17 @@ textarea.contact-form-text
   box-sizing: border-box;
 }
 
-.about-btn
+.Resume a
 {
-	float: left;
-	border: 0;
-	background: #007D00;
-	color: #fff;
-	padding: 12px 50px;
-	border-radius: 20px;
-	cursor: pointer;
-	transition: 0.5s;
+	color: #007D00;
+	background: #fff;
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: #007D00;
 }
 
-.about-btn:hover
+.Resume a:hover
 {
-	background: #00B300;
-}
-
-.wrapper
-{
-	margin-top: 10%;	
-}
-.wrapper h1
-{
-	font-family: 'Allura', sans-serif;
-	font-size: 52px;
-	margin-bottom: 60px;
-	text-align: center;
 	color: white;
-}
-.team
-{
-	display: flex;
-	text-align: center;
-	width: auto;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-.team .team_member
-{
-	background: #fff;
-	margin: 5px;
-	margin-bottom: 50px;
-	width: 300px;
-	padding: 20px;
-	line-height: 20px;
-	color: #8e8b8b;
-	position: relative;
-}
-.team .team_member h3
-{
-	color: #704A10;
-	font size: 26px;
-	margin-top: 50px; /*Makes space for image tag*/
-}
-.team .team_member p.role
-{
-	color: #A36717;
-	font-size: 12px;
-	text-transform: uppercase;
-	margin: 12px;
-}
-.team .team_member .team_img
-{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	position:absolute;
-	top: -50px;
-	left: 50%;
-	transform: translateX(-50%);
-	background: #fff;
-	
-}
-.team .team_member .team_img img
-{
-	width: 100px;
-	height: 100px;
-	padding: 0px;
-	clip-path: circle();
+	background: #007D00;
 }
