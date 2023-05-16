@@ -15,12 +15,18 @@ MODIFICATION HISTORY:
 	box-sizing: border-box;
   	scroll-behavior: smooth;
 	font-family: "Montserrat", sans-serif;
+
+	/*
+	color: #fff;
+	background: #000;
+	background-color: #0000;
+	*/
 }
 
 #bg
 {
-	/*background-color: #1d60e5;*/
-	background: linear-gradient(rgba(29,96,229, .4), rgba(29,96,229, .1));
+	background-color: #000000;
+	/*background: linear-gradient(rgba(29,96,229, .4), rgba(29,96,229, .1));*/
 	
 }
 
@@ -32,25 +38,14 @@ MODIFICATION HISTORY:
 .header 
 {
     background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4));
-    height: 100vh;
+    height: 8vh;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-size: var(--font-size-normal);
 }
 
-.header__text {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
 
-.header__text p {
-    margin: 1.5rem 0 3.5rem;
-    max-width: var(--container-medium-width);
-    font-family: 'Jost', sans-serif;
-    font-size: var(--font-size-medium);
-}
 
 @media(max-width: 500px) {
     .header {
@@ -67,6 +62,54 @@ MODIFICATION HISTORY:
 /* ----- Navigation Bar ----- */
 /* --------------------------------------- */
 
+nav ul
+{
+	float: right;
+	padding: 25px;
+}
+
+nav ul li
+{
+	display: inline-block;
+	float: left;
+
+}
+
+nav ul li:not(:first-child)
+{
+	margin-left: 48px;
+}
+
+nav ul li:last-child
+{
+	margin-right: 24px;
+}
+
+nav ul li a
+{
+	position: relative;
+	display: inline-block;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 18px;
+	letter-spacing: 1.2px;
+	font-weight: 600;
+	background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, #007D00 90%, #007D00 100%);
+	background-repeat: no-repeat;
+	background-size: 0% 100%;
+	background-position-x: left;
+	transition: background-size 300ms;
+}
+
+
+nav ul li a:hover
+{
+	color:#007D00;
+	transition: 300ms;
+	background-size: 100% 100%;
+	background-position-x: left;
+}
 
 
 /* --------------------------------------- */
@@ -162,39 +205,22 @@ textarea.contact-form-text
 
 
 
-@media(max-width: 900px) 
-{
-    #Project 
-	{
-        align-items: initial;
-        flex-direction: column-reverse;
-    }
-}
 
 
-.project__list 
-{
-    /* list-style-type: square; */
-    list-style-position: inside;
-    margin-bottom: var(--gutter-normal);
-}
 
-
-.Project 
-{  
+.Project {
 	display: flex;
 	flex-wrap: wrap;
-	opacity: 1;
-	transition: opacity 1s ease-in-out;
+	/*opacity: 0;*/
+	transition: opacity 0.5s ease-in-out;
 	margin-bottom: 200px; /* Adjust the spacing as needed */
 	padding: 20px;
-	
-}
-
-.Project--visible 
-{
+  }
+  
+  .Project.active {
 	opacity: 1;
-}
+  }
+  
 
 .Description
 {
@@ -440,25 +466,97 @@ input[type="submit"]:hover
 
 .Resume 
 {
-	float: right;
-  width: 50%;
-  height: auto;
-  border-radius: 10px;
-  padding: 20px;
-  box-sizing: border-box;
+	margin: 200px;
+	border-radius: 10px;
+	padding: 20px;
 }
 
+/*
 .Resume a
 {
 	color: #007D00;
 	background: #fff;
+
 	border: 2px solid;
 	border-radius: 10px;
 	border-color: #007D00;
+
+
+	padding: 12px 50px;
+	
+	cursor: pointer;
+	transition: 0.5s;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-size: 18px;
+  	font-weight: 700;
+  	
+	margin-right: 10px;
 }
 
 .Resume a:hover
 {
 	color: white;
 	background: #007D00;
+}
+*/
+
+.Resume a
+{
+	position: absolute;
+	width: 150px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	border: 2px solid #17795E;
+	background-color: #20997B;
+	overflow: hidden;
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+}
+
+.Resume a, .Resume a .icon
+{
+	transition: all 0.3s;
+}
+
+.Resume a span
+{
+	transform: translateX(15px);
+}
+
+.Resume a .icon
+{
+	position: absolute;
+	transform: translateX(109px);
+	height: 100%;
+	width: 39px;
+	background-color: #17795E;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Resume a:hover
+{
+	background-color: #17795E;
+}
+
+
+.Resume a:hover .icon
+{
+	width: 148px;
+	transform: translateX(0px);
+}
+
+.Resume a:active .icon
+{
+	background-color: #146c54;
+}
+
+.Resume a:active
+{
+	border: 1px solid #146c54;
 }

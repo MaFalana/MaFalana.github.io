@@ -79,7 +79,7 @@ $(document).ready(function()
         }
         html += "</ul>" //End of Tools Section
         html += "<a href='"+ Git +"'>Github</a>"
-            html += "<a href='"+ Demo +"'>Demo</a>"
+            html += "<a href='"+ Demo +"'>Live Demo</a>"
         html += "</div>" //End of Project Description Section
 
         return html;
@@ -122,31 +122,7 @@ $(document).ready(function()
         }
     }
 
-    function displayProjects() {
-        const projects = document.querySelectorAll('.Project');
-      
-        const options = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.5 // when half of the element is visible
-        };
-      
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('Project--visible');
-              observer.unobserve(entry.target);
-            } else {
-              entry.target.classList.remove('Project--visible');
-            }
-          });
-        }, options);
-      
-        // Observe each .Project element
-        projects.forEach(project => {
-          observer.observe(project);
-        });
-      }
+  
       
       
 
@@ -158,11 +134,39 @@ $(document).ready(function()
     const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS", "https://mafalana.github.io/Mahjong/");
     const p6 = new project("Mytunes","Server-side music streaming application",[],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
     makeProjects();
-    displayProjects();
+    
 
     
 
-
+    $(".Project").on("scroll", function() {
+      var visibleProject = null;
+    
+      $(".Project").each(function() {
+        var projectOffset = $(this).offset().top;
+        var projectHeight = $(this).outerHeight();
+        var scrollPosition = $(".Projects").scrollTop();
+        var windowHeight = $(".Projects").height();
+    
+        if (
+          projectOffset < scrollPosition + windowHeight &&
+          projectOffset + projectHeight > scrollPosition
+        ) {
+          visibleProject = $(this);
+        } else {
+          $(this).removeClass("active");
+        }
+      });
+    
+      if (visibleProject !== null) {
+        $(".Project").removeClass("active");
+        visibleProject.addClass("active");
+      }
+    });
+    
+    
+    
+    
+  
     
 
 
