@@ -132,7 +132,7 @@ $(document).ready(function()
     const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "https://github.com/MaFalana/What-s-That-Color-", "");
     const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "https://github.com/MaFalana/Kazaam","");
     const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS", "https://mafalana.github.io/Mahjong/");
-    const p6 = new project("Mytunes","Server-side music streaming application",[],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
+    const p6 = new project("Mytunes","Server-side music streaming application",["images/a.png,images/b.png,images/c.png"],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
     makeProjects();
     
 
