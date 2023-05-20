@@ -25,7 +25,7 @@ MODIFICATION HISTORY:
 
 #bg
 {
-	background-color: #000000;
+	background-color: #746767;
 	/*background: linear-gradient(rgba(29,96,229, .4), rgba(29,96,229, .1));*/
 	
 }
@@ -62,7 +62,76 @@ MODIFICATION HISTORY:
 /* ----- Navigation Bar ----- */
 /* --------------------------------------- */
 
+nav
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	background: #000000;
+	padding: 15px;
+}
+
+nav a
+{
+
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 18px;
+	letter-spacing: 1.2px;
+	font-weight: 600;
+}
+
+nav .logo
+{
+	margin-right: 50px;
+}
+
 nav ul
+{
+	list-style: none;
+	display: flex;
+	gap: 25px;
+}
+
+#toggler, nav label
+{
+	display: none;
+}
+
+@media screen and (max-width: 600px)
+{
+	nav .menu
+	{
+		width: 100%;
+		max-height: 0;
+		overflow: hidden;
+	}
+
+	nav ul
+	{
+		flex-direction: column;
+		align-items: center;
+		padding: 20px;
+	}
+
+	nav label
+	{
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+		color: #fff;
+	}
+
+	#toggler:checked ~ nav .menu
+	{
+		max-height: 100%;
+		
+	}
+}
+
+/*nav ul
 {
 	float: right;
 	padding: 25px;
@@ -83,18 +152,10 @@ nav ul li:not(:first-child)
 nav ul li:last-child
 {
 	margin-right: 24px;
-}
+}*/
 
 nav ul li a
 {
-	position: relative;
-	display: inline-block;
-	color: #fff;
-	text-transform: uppercase;
-	text-decoration: none;
-	font-size: 18px;
-	letter-spacing: 1.2px;
-	font-weight: 600;
 	background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, #007D00 90%, #007D00 100%);
 	background-repeat: no-repeat;
 	background-size: 0% 100%;
@@ -105,10 +166,11 @@ nav ul li a
 
 nav ul li a:hover
 {
-	color:#007D00;
+	color:#FFF;
 	transition: 300ms;
 	background-size: 100% 100%;
 	background-position-x: left;
+	text-decoration: none;
 }
 
 
