@@ -25,7 +25,7 @@ MODIFICATION HISTORY:
 
 #bg
 {
-	background-color: #746767;
+	background-color: darkgray;
 	/*background: linear-gradient(rgba(29,96,229, .4), rgba(29,96,229, .1));*/
 	
 }
@@ -74,7 +74,6 @@ nav
 
 nav a
 {
-
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -122,6 +121,11 @@ nav ul
 		align-items: center;
 		cursor: pointer;
 		color: #fff;
+		text-transform: uppercase;
+		text-decoration: none;
+		font-size: 18px;
+		letter-spacing: 1.2px;
+		font-weight: 600;
 	}
 
 	#toggler:checked ~ nav .menu
@@ -130,29 +134,6 @@ nav ul
 		
 	}
 }
-
-/*nav ul
-{
-	float: right;
-	padding: 25px;
-}
-
-nav ul li
-{
-	display: inline-block;
-	float: left;
-
-}
-
-nav ul li:not(:first-child)
-{
-	margin-left: 48px;
-}
-
-nav ul li:last-child
-{
-	margin-right: 24px;
-}*/
 
 nav ul li a
 {
