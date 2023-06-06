@@ -136,7 +136,7 @@ $(document).ready(function()
 {
     const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
     const steamID = "76561199242197802";
-    const url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
+    const url = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
 
     $.getJSON(url, function(data) // Grabs Projects from JSON file
     {
@@ -153,17 +153,12 @@ function getGrid(id) {
   const key = "b067ec1341a4f261e19156d57226ce32";
   const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}`;
 
-  return fetch(url, {
-    headers: {
-      Authorization: `Bearer ${key}`,
-    },
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Failed to fetch grid data");
-      }
-      return response.json();
-    })
+  const headers = {
+    Authorization: "Bearer b067ec1341a4f261e19156d57226ce32",
+  };
+
+  fetch(url, { headers })
+    .then(response => response.json())
     .then(data => {
       var source = data.response[0];
       console.log(source);
@@ -171,9 +166,10 @@ function getGrid(id) {
       return image;
     })
     .catch(error => {
-      console.error("Error fetching grid data:", error);
+      console.error("Error fetching grid:", error);
     });
 }
+
 
  function createGame(id, image, title)
 {
