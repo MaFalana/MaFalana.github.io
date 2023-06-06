@@ -15,14 +15,14 @@ $(document).ready(function()
 
     function displayStats() // Displays leetcode stattistics
     {
-        const url = "https://leetcode-stats-api.herokuapp.com/mfalana";
+        const url = "./interests.json";
 
         $.getJSON(url, function(data) //assigns variable from json data
         {
-            var totalSolved = data.totalSolved;
-            var totalQuestions = data.totalQuestions  
+            var activity = data.totalSolved;
+            var image = data.totalQuestions  
         
-            var easySolved = data.easySolved;
+            var description = data.easySolved;
             var totalEasy = data.totalEasy;  
 
             var mediumSolved = data.mediumSolved;
@@ -34,121 +34,10 @@ $(document).ready(function()
             const solvedQuestions = [easySolved,totalEasy,mediumSolved,totalMedium,hardSolved,totalHard]
             
             
-            var html = "<div>";
-
-
-
-            html += `<div class="total">`; // Total
-
-            html += `<canvas class = "my-chart">`;
-
-            html += `</canvas>`;
-
-            html += "</div>"; //End of total
-
-            
-
-            html += `<div class="detail">`; // detail
-
-            html += `<canvas class = "my-chart-2">`;
-
-            html += `</canvas>`;
-
-            html += "</div>"; //End of detail
-
-
-            html += "</div>"; //End of Card
-
             $("#LeetCode").append(html); //Append to Projects Section
-
-            createDonut(totalSolved, totalQuestions);
-            createLines(solvedQuestions);
-
         });
 
 
-    }
-
-    function createDonut(totalSolved, totalQuestions)
-    {
-        const myChart = $(".my-chart");
-
-        const chartData = {
-            labels: ['Solved','Total Questions'],
-            data: [totalSolved, totalQuestions],
-          };
-
-         new Chart(myChart, {
-            type: "doughnut",
-            data: {
-                labels: chartData.labels,
-                datasets: [
-                    {
-                        label: "idk",
-                        data: chartData.data,
-                    }
-                    
-                ]
-            },
-        })
-        
-    }
-
-    function createLines(solvedQuestions)
-    {
-        const myChart = $(".my-chart-2");
-
-        const chartData = {
-            labels: ['Solved','Total Questions'],
-            data: solvedQuestions,
-          };
-
-          const easyData = {
-            label: "Easy Questions",
-            data: [solvedQuestions[0],solvedQuestions[1]],
-          }
-
-          const mediumData = {
-            label: "Medium Questions",
-            data: [solvedQuestions[2],solvedQuestions[3]],
-          }
-
-          const hardData = {
-            label: "Hard Questions",
-            data: [solvedQuestions[4],solvedQuestions[5]],
-          }
-
-         new Chart(myChart, {
-            type: "bar",
-            data: {
-                labels: chartData.labels,
-                datasets: [
-                    {
-                        label: "Easy",
-                        data: easyData.data,
-                    },
-
-                    {
-                        label: "Medium",
-                        data: mediumData.data,
-                    },
-
-                    {
-                        label: "Hard",
-                        data: hardData.data,
-                    }
-                    
-                ]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        })
-        
     }
 
     function createIntrest(title, id)
@@ -175,98 +64,34 @@ $(document).ready(function()
         }   
     }
 
-    function makeCarousel(carousel)
+
+    function displayProjects()
     {
-       // var carousel = document.querySelector('.Carousel');
-
-        const items = carousel.querySelectorAll('.Carousel-item');
-
-        const buttonsHtml = Array.from(items, () => 
-        {
-            return `<span class="Carousel-btn"></span>`
-        });
-        
-        carousel.insertAdjacentHTML('beforeend', `
-        <div class="Carousel-nav">
-        ${buttonsHtml.join('')}
-        </div>
-        `);
-
-
-        const buttons = document.querySelectorAll('.Carousel-btn');
-        buttons.forEach ((button, i) => 
-        {
-            button.addEventListener('click', () => 
-            {
-                //unselect all items
-                items.forEach(item => item.classList.remove('Carousel-item--selected'));
-                buttons.forEach(item => item.classList.remove('Carousel-btn--selected'));
-
-                //select the clicked item
-                items[i].classList.add('Carousel-item--selected');
-                buttons[i].classList.add('Carousel-btn--selected');
-            });
-        });
-
-        //set initial state
-        items[0].classList.add('Carousel-item--selected');
-        buttons[0].classList.add('Carousel-btn--selected');
-    }
-
-    function displayDescription(Title, Description, Tools, Git, Demo)
-    {
-        var html = "<div id='project-info' class='Description'>" //Project Description Section
-        html += "<h1>" + Title + "</h1>"
-        html += "<p>" + Description + "</p>"
-        html += " <ul>" // Tools Section
-        for(var i = 0; i < Tools.length; i++)
-        {
-            html += "<li>" + Tools[i] + "</li>"
-        }
-        html += "</ul>" //End of Tools Section
-        html += "<a href='"+ Git +"'>Github</a>"
-        html += "<a href='"+ Demo +"'>Live Demo</a>"
-        html += "</div>" //End of Project Description Section
-
-        return html;
-
-    }
-
-    function displayImages(Image)
-    {
-        var html = "<div id='project-pic' class='Carousel'>" // Image Section
-        for(var j = 0; j < Image.length; j++)
-        {
-            html += "<img src='" + Image[j] + "' class='Carousel-item' alt='Project "+ j +"' />"
-        }
-        
-        html += "</div>" //End of Image Section
-
-        return html;
-    }
-
-    function makeProjects()
-    {
-        $.getJSON("./projects.json", function(data)
+        $.getJSON("./projects.json", function(data) // Grabs Projects from JSON file
         {
             for(var i = 0; i < data.projects.length; i++)
             {
-                var project = data.projects[i];
-
-                var html = `<div id="Project-${i}" class="Project">`;
-
-                html += displayDescription(project.title, project.description, project.tools, project.git, project.demo);
-
-                html += displayImages(project.image);
-
-                html += "</div>"; //End of Project Card
-
-                $("#Projects").append(html); //Append to Projects Section
-                
-                const carousel = document.querySelector(`#Project-${i} .Carousel`);
-                makeCarousel(carousel);
+                var project = data.projects[i]; //assigns variable from json data
+                createProject(i, project.title, project.image, project.description, project.tools, project.git, project.demo);
             }
         });
+    }
+
+    function createProject(id, title, image, description, tools, git, demo)
+    {
+       var html = `<div class = "card Project${id}">`;
+       html += `<div class="container">`;
+       html += `<img src=${image[0]} alt=${title}>`;
+       html += `</div>`;
+       html += `<div class="details">`;
+       html += `<h3>${title}</h3>`;
+       html += `<p>${description}</p>`;
+       html += `<p>${tools}</p>`;
+       html += `<a href="${git}">Github</a>`
+       html += `<a href="${demo}">Live Demo</a>`
+       html += `</div>`;
+       html += `</div>`;
+       $(".Projects div.master").append(html); //Append to Projects Section
     }
 
     function downloadResume(event) {
@@ -280,7 +105,7 @@ $(document).ready(function()
       
     displayStats();
     displayIntrests() 
-    makeProjects();
+    displayProjects();
     
 
     //Event Listeners
