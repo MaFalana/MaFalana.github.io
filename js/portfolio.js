@@ -11,134 +11,155 @@
 
 $(document).ready(function() 
 {
-    const projects = [];
+    //Functions
 
-    class project
+    function displayStats() // Displays leetcode stattistics
     {
-        constructor(title, description, image, tools, git, demo)
+        const url = "./interests.json";
+
+        $.getJSON(url, function(data) //assigns variable from json data
         {
-            this.title = title;
-            this.description = description;
-            this.image = image;
-            this.tools = tools
-            this.git = git;
-            this.demo = demo;
-            projects.push(this);
-        }
-    }
-      
-
-
-    function makeCarousel(carousel)
-    {
-       // var carousel = document.querySelector('.Carousel');
-
-        const items = carousel.querySelectorAll('.Carousel-item');
-
-        const buttonsHtml = Array.from(items, () => 
-        {
-            return `<span class="Carousel-btn"></span>`
-        });
+            var activity = data.totalSolved;
+            var image = data.totalQuestions  
         
-        carousel.insertAdjacentHTML('beforeend', `
-        <div class="Carousel-nav">
-        ${buttonsHtml.join('')}
-        </div>
-        `);
+            var description = data.easySolved;
+            var totalEasy = data.totalEasy;  
+
+            var mediumSolved = data.mediumSolved;
+            var totalMedium = data.totalMedium  
+
+            var hardSolved = data.hardSolved;
+            var totalHard = data.totalHard;
+
+            const solvedQuestions = [easySolved,totalEasy,mediumSolved,totalMedium,hardSolved,totalHard]
+            
+            
+            $("#LeetCode").append(html); //Append to Projects Section
+        });
 
 
-        const buttons = document.querySelectorAll('.Carousel-btn');
-        buttons.forEach ((button, i) => 
+    }
+
+    function createIntrest(activity, title, id)
+    {
+      if(activity == "Gaming")
+      {
+        //createGame(id, title);
+        getRecentGames();
+      }
+      else if(activity == "Reading")
+      {
+        //createBook(id, title);
+      }
+      else if(activity == "Watching")
+      {
+        //createShow(id, title);
+      }
+      else if(activity == "Music")
+      {
+        //createMusic(id, title);
+      }
+      else if(activity == "Learning")
+      {
+        // var html = `<div class = "card card${id}">`;
+        // html += `<div class="container">`;
+        // html += `<img src="./assets/Test/1.png" alt=${title}>`;
+        // html += `</div>`;
+        // html += `<div class="details">`;
+        // html += `<h3>${title}</h3>`;
+        // html += `<p></p>`;
+        // html += `</div>`;
+        // html += `</div>`;
+        // $(".Intrests div.master").append(html); //Append to Intrests Section
+      }
+       
+    }
+
+    function displayIntrests()
+    {
+        const data = ["Reading", "Watching", "Music", "Gaming", "Learning"]
+        
+        for(var i = 0; i < data.length; i++)
         {
-            button.addEventListener('click', () => 
+            createIntrest(data[i], i);
+        } 
+    }
+
+
+    function displayProjects()
+    {
+        $.getJSON("./projects.json", function(data) // Grabs Projects from JSON file
+        {
+            for(var i = 0; i < data.projects.length; i++)
             {
-                //unselect all items
-                items.forEach(item => item.classList.remove('Carousel-item--selected'));
-                buttons.forEach(item => item.classList.remove('Carousel-btn--selected'));
-
-                //select the clicked item
-                items[i].classList.add('Carousel-item--selected');
-                buttons[i].classList.add('Carousel-btn--selected');
-            });
+                var project = data.projects[i]; //assigns variable from json data
+                createProject(i, project.title, project.image, project.description, project.tools, project.git, project.demo);
+            }
         });
-
-        //set initial state
-        items[0].classList.add('Carousel-item--selected');
-        buttons[0].classList.add('Carousel-btn--selected');
     }
 
-    function displayDescription(Title, Description, Tools, Git, Demo)
+    function createProject(id, title, image, description, tools, git, demo)
     {
-        var html = "<div id='project-info' class='Description'>" //Project Description Section
-        html += "<h1>" + Title + "</h1>"
-        html += "<p>" + Description + "</p>"
-        html += " <ul>" // Tools Section
-        for(var i = 0; i < Tools.length; i++)
-        {
-            html += "<li>" + Tools[i] + "</li>"
-        }
-        html += "</ul>" //End of Tools Section
-        html += "<a href='"+ Git +"'>Github</a>"
-            html += "<a href='"+ Demo +"'>Live Demo</a>"
-        html += "</div>" //End of Project Description Section
-
-        return html;
-
+       var html = `<div class = "card Project${id}">`;
+       html += `<div class="container">`;
+       html += `<img src=${image[0]} alt=${title}>`;
+       html += `</div>`;
+       html += `<div class="details">`;
+       html += `<h3>${title}</h3>`;
+       html += `<p>${description}</p>`;
+       html += `<p>${tools}</p>`;
+       html += `<a href="${git}">Github</a>`
+       html += `<a href="${demo}">Live Demo</a>`
+       html += `</div>`;
+       html += `</div>`;
+       $(".Projects div.master").append(html); //Append to Projects Section
     }
 
-    function displayImages(Image)
+    function downloadResume(event) 
     {
-        var html = "<div id='project-pic' class='Carousel'>" // Image Section
-        for(var j = 0; j < Image.length; j++)
-        {
-            html += "<img src='" + Image[j] + "' class='Carousel-item' alt='Project "+ j +"' />"
-        }
-        
-        html += "</div>" //End of Image Section
-
-        return html;
+        event.preventDefault();
+        var resumeUrl = event.target.href;
+        window.location.href = resumeUrl;
     }
 
-    function makeProjects()
-    {
-        for(var i = 0; i < projects.length; i++)
-        {
-            var project = projects[i];
-
-            var html = `<div id="Project-${i}" class="Project">`;
-
-            html += displayDescription(project.title, project.description, project.tools, project.git, project.demo);
-
-            html += displayImages(project.image);
-
-            html += "</div>" //End of Project Card
-
-            
-
-            $("#Projects").append(html); //Append to Projects Section
-            
-            const carousel = document.querySelector(`#Project-${i} .Carousel`);
-            makeCarousel(carousel);
-        }
-    }
+   function getRecentGames()
+   {
+      const url = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=0D836EDE33B2BBFA7AB2EF93DF2FEBFF&steamid=76561199242197802";
+      $.getJSON(url, function(data) // Grabs Projects from JSON file
+      {
+          //for(var i = 0; i < data.games.length; i++)
+          //{
+              var game = data.games[0]; //assigns variable from json data
+              console.log(game);
+              var title = game.name;
+              var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`;
+              createGame(game.appid, image, title);
+          //}
+      });
+   }
 
 
-    
+   function createGame(id, image, title)
+   {
+      var html = `<div class = "card card${id}">`;
+      html += `<div class="container">`;
+      html += `<img src="${image}" alt=${title}>`;
+      html += `</div>`;
+      html += `<div class="details">`;
+      html += `<h3>${title}</h3>`;
+      html += `<p></p>`;
+      html += `</div>`;
+      html += `</div>`;
+      $(".Intrests div.master").append(html); //Append to Intrests Section
+   }
   
       
-      
-
-    const p0 = new project("Test","Filler words",["images/1.png","images/4.png","images/5.png"],["Swift","SQL","API"], "");
-    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","OOP","Core Data","Xcode","API","Web Scraping"], "https://github.com/MaFalana/LEDGER-","https://testflight.apple.com/join/947cRtnp");
-    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "https://github.com/MaFalana/CS-Paint","");
-    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "https://github.com/MaFalana/What-s-That-Color-", "");
-    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "https://github.com/MaFalana/Kazaam","");
-    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS", "https://mafalana.github.io/Mahjong/");
-    const p6 = new project("Mytunes","Server-side music streaming application",["images/a.png","images/b.png","images/c.png"],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
-    makeProjects();
+    displayStats();
+    displayIntrests() 
+    displayProjects();
     
 
-    
+    //Event Listeners
 
     $(".Project").on("scroll", function() {
       var visibleProject = null;
@@ -164,6 +185,8 @@ $(document).ready(function()
         visibleProject.addClass("active");
       }
     });
+
+    
     
     
     

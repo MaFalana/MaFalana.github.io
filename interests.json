@@ -1,0 +1,29 @@
+https://api.music.apple.com/v1/me/recent/played?limit=10 //Gets 10 recently played songs
+
+https://api.music.apple.com/v1/me/history/heavy-rotation?limit=10  //Gets 10 most played songs
+
+https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=440&count=3 
+
+http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=0D836EDE33B2BBFA7AB2EF93DF2FEBFF&steamid=76561199242197802 // Gets recently played gmes
+
+http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.jpg
+
+{
+    "Intrests":
+    [
+        {
+            "activity":"Gaming",
+            "url":"http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=0D836EDE33B2BBFA7AB2EF93DF2FEBFF&steamid=76561199242197802"
+        },
+
+        {
+            "activity":"Music",
+            "url":"https://api.music.apple.com/v1/me/recent/played?limit=10"
+        },
+        
+        {
+            "activity":"News",
+            "url":"https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=440&count=3"
+        }
+    ]
+}
