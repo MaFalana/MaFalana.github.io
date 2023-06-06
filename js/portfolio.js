@@ -132,7 +132,7 @@ $(document).ready(function()
         window.location.href = resumeUrl;
     }
 
-     function getRecentGames()
+function getRecentGames()
 {
     const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
     const steamID = "76561199242197802";
@@ -143,8 +143,8 @@ $(document).ready(function()
         var game = data.response.games[0]; //assigns variable from json data
         console.log(data);
         var title = game.name;
-        var image = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
-        //var image = getGrid(game.appid);
+        //var image = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+        var image = getGrid(game.appid);
         createGame(game.appid, image, title);
     });
 }
