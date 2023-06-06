@@ -143,30 +143,23 @@ $(document).ready(function()
         var game = data.response.games[0]; //assigns variable from json data
         console.log(data);
         var title = game.name;
-        //var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
-        var image = getGrid(game.appid);
+        var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+        //var image = getGrid(game.appid);
         createGame(game.appid, image, title);
     });
 }
 
-function getGrid(id) {
-  const key = "b067ec1341a4f261e19156d57226ce32";
-  const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}`;
+function getGrid(id) //Method to get decent cover art of game
+{
+    const key = "b067ec1341a4f261e19156d57226ce32";
+    const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}?key=${key}`;
 
-  const headers = {
-    Authorization: "Bearer b067ec1341a4f261e19156d57226ce32",
-  };
-
-  fetch(url, { headers })
-    .then(response => response.json())
-    .then(data => {
-      var source = data.response[0];
-      console.log(source);
-      var image = source.url;
-      return image;
-    })
-    .catch(error => {
-      console.error("Error fetching grid:", error);
+    $.getJSON(url, function(data) // Grabs Projects from JSON file
+    {
+        var source = data.response[0]; //assigns variable from json data
+        console.log(source);
+        var image = source.url;
+        return image;
     });
 }
 
