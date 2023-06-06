@@ -398,46 +398,124 @@ textarea.contact-form-text
 /* --------------------------------------- */
 
 
+/* --------------------------------------- */
+/* ----- Projects ----- */
+/* --------------------------------------- */
 
-
-
-
-.Project 
+.Projects
 {
-	display: flex;
-	
-	/*opacity: 0;*/
-	transition: opacity 0.5s ease-in-out;
-	margin-top: 500px;
-	margin-bottom: 300px; /* Adjust the spacing as needed */
-	padding: 20px;
-	
-  }
-  
-  .Project.active 
-  {
-	opacity: 1;
-  }
-  
+	background-color: #151320;
+	height: 100vh;
+	display: grid;
+	place-items: center center;
 
-.Description
+	
+	
+}
+
+.Projects div.master
 {
-	width: auto; /* change this value to set the desired width */
-	height: auto; /* change this value to set the desired height */
-	border-radius: 10px; /* change this value to set the desired radius of rounded corners */
-	flex: 1 1 50%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
 	padding: 20px;
+	grid-gap: 40px;
+}
+
+.Projects div.card
+{
+	background-color: #1C1B29;
+	border-radius: 20px;
+	box-shadow: 0 0 30px rgba(0,0,0, .18);
+}
+
+.container
+{
+	position: relative;
+	clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.Projects .container img
+{
+	width: 100%;
+	display: block;
+	border-radius: 20px 20px 0 0;
+}
+
+.Projects div.container:after
+{
+	content: "";
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 20px 20px 0 0;
+	opacity: 0.7;
+}
+
+.Project0 >.container:after
+{
+	background-image: linear-gradient(135deg, #0100EC, #FB36F4);
+}
+
+.Project1 >.container:after
+{
+	background-image: linear-gradient(135deg, #2BDCE3, #42FFDB);
+}
+
+.Project2 >.container:after
+{
+	background-image: linear-gradient(135deg, #FFAB1D, #F8501C);
+}
+
+.card .details
+{
+	padding: 20px 10px;
+}
+
+.card .details h3
+{
+	color: #FFF;
+	font-weight: 600;
+	font-size: 18px;
+	margin: 10px 0 15px 0;
+}
+
+.card .details p
+{
+	color: #A0A0A0;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 30px;
+}
+
+.card .details a
+{
+	color: #A0A0A0;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 30px;
+
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: #007D00;
+	padding: 12px 50px;
+
+	cursor: pointer;
+	transition: 0.5s;
 	box-sizing: border-box;
-	background: white;
-	box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+	text-decoration: none;
+	margin-right: 10px;
+
+
 }
 
-.Description h1
+.card .details a:hover
 {
-	text-align: center;
-	padding: 20px 0;
-	border-bottom: 0px solid silver;
+	color: white;
+	background: #007D00;
 }
+
 
 .Description a
 {
@@ -472,15 +550,6 @@ textarea.contact-form-text
 	background: #007D00;
 }
 
-.Description ul li
-{
-	
-}
-
-  .image 
-  {
-	
-  }
   
 .History 
 {
