@@ -1,0 +1,14 @@
+https://api.music.apple.com/v1/me/recent/played?limit=10 //Gets 10 recently played songs
+
+https://api.music.apple.com/v1/me/history/heavy-rotation?limit=10  //Gets 10 most played songs
+
+{
+    "Intrests":[
+        {
+            "title": "",
+            "artist": "",
+            "image": "",
+            "description": ""
+        }
+    ]
+}

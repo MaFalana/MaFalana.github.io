@@ -1,0 +1,77 @@
+{
+    "projects":[
+        {
+            "title": "Project 1",
+            "description": "This is a project",
+            "image": ["https://via.placeholder.com/150","https://via.placeholder.com/140","https://via.placeholder.com/130"],
+            "tools": ["HTML","CSS","JS"],
+            "git": "",
+            "demo": ""
+        },
+
+        {
+            "title": "Test",
+            "description": "Filler words",
+            "image": ["assets/Test/1.png","assets/Test/4.png","assets/Test/5.png"],
+            "tools": ["Swift","SQL","API"],
+            "git": "",
+            "demo": ""
+        },
+
+        {
+            "title": "LEDGERº",
+            "description": "Open source manga reading application for IOS/iPadOS",
+            "image": ["assets/LEDGERº/1.png"],
+            "tools": ["Swift","OOP","Core Data","Xcode","API","Web Scraping"],
+            "git": "https://github.com/MaFalana/LEDGER-",
+            "demo": "https://testflight.apple.com/join/947cRtnp"
+        },
+
+        {
+            "title": "CS Paint",
+            "description": "A simple drawing application",
+            "image": ["assets/CS Paint/1.png"],
+            "tools": ["Java","GUI","Serialization","Object Oriented Programming"],
+            "git": "https://github.com/MaFalana/CS-Paint",
+            "demo": ""
+        },
+
+        {
+            "title": "What's That Color",
+            "description": "A color scaninng app",
+            "image": ["assets/a.png"],
+            "tools": ["Swift","Mobile Development","OOP"],
+            "git": "https://github.com/MaFalana/What-s-That-Color-",
+            "demo": ""
+        },
+
+        {
+            "title": "Kazaam",
+            "description": "Multimedia scanning application",
+            "image": ["assets/a.png"],
+            "tools": ["Swift","API","SOLID Principles","OOP"],
+            "git": "https://github.com/MaFalana/Kazaam",
+            "demo": ""
+        },
+
+        {
+            "title": "Mahjong CS",
+            "description": "A simple Mahjong game",
+            "image": ["assets/a.png"],
+            "tools": ["C++","ReactJs","GUI","SOLID Principles","ADT","Server","OOP"],
+            "git": "https://github.com/MaFalana/Mahjong-CS",
+            "demo": "https://mafalana.github.io/Mahjong/"
+        },
+
+        {
+            "title": "Mytunes",
+            "description": "Server-side music streaming application",
+            "image": ["assets/a.png","assets/b.png","assets/c.png"],
+            "tools": ["Php","Html","CSS","API","OOP"],
+            "git": "https://github.com/MaFalana/Mytunes",
+            "demo": "https://mafalana.github.io/Mytunes/"
+        }
+
+    ]
+}
+
