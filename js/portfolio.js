@@ -11,23 +11,169 @@
 
 $(document).ready(function() 
 {
-    const projects = [];
+    //Functions
 
-    class project
+    function displayStats() // Displays leetcode stattistics
     {
-        constructor(title, description, image, tools, git, demo)
-        {
-            this.title = title;
-            this.description = description;
-            this.image = image;
-            this.tools = tools
-            this.git = git;
-            this.demo = demo;
-            projects.push(this);
-        }
-    }
-      
+        const url = "https://leetcode-stats-api.herokuapp.com/mfalana";
 
+        $.getJSON(url, function(data) //assigns variable from json data
+        {
+            var totalSolved = data.totalSolved;
+            var totalQuestions = data.totalQuestions  
+        
+            var easySolved = data.easySolved;
+            var totalEasy = data.totalEasy;  
+
+            var mediumSolved = data.mediumSolved;
+            var totalMedium = data.totalMedium  
+
+            var hardSolved = data.hardSolved;
+            var totalHard = data.totalHard;
+
+            const solvedQuestions = [easySolved,totalEasy,mediumSolved,totalMedium,hardSolved,totalHard]
+            
+            
+            var html = "<div>";
+
+
+
+            html += `<div class="total">`; // Total
+
+            html += `<canvas class = "my-chart">`;
+
+            html += `</canvas>`;
+
+            html += "</div>"; //End of total
+
+            
+
+            html += `<div class="detail">`; // detail
+
+            html += `<canvas class = "my-chart-2">`;
+
+            html += `</canvas>`;
+
+            html += "</div>"; //End of detail
+
+
+            html += "</div>"; //End of Card
+
+            $("#LeetCode").append(html); //Append to Projects Section
+
+            createDonut(totalSolved, totalQuestions);
+            createLines(solvedQuestions);
+
+        });
+
+
+    }
+
+    function createDonut(totalSolved, totalQuestions)
+    {
+        const myChart = $(".my-chart");
+
+        const chartData = {
+            labels: ['Solved','Total Questions'],
+            data: [totalSolved, totalQuestions],
+          };
+
+         new Chart(myChart, {
+            type: "doughnut",
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: "idk",
+                        data: chartData.data,
+                    }
+                    
+                ]
+            },
+        })
+        
+    }
+
+    function createLines(solvedQuestions)
+    {
+        const myChart = $(".my-chart-2");
+
+        const chartData = {
+            labels: ['Solved','Total Questions'],
+            data: solvedQuestions,
+          };
+
+          const easyData = {
+            label: "Easy Questions",
+            data: [solvedQuestions[0],solvedQuestions[1]],
+          }
+
+          const mediumData = {
+            label: "Medium Questions",
+            data: [solvedQuestions[2],solvedQuestions[3]],
+          }
+
+          const hardData = {
+            label: "Hard Questions",
+            data: [solvedQuestions[4],solvedQuestions[5]],
+          }
+
+         new Chart(myChart, {
+            type: "bar",
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: "Easy",
+                        data: easyData.data,
+                    },
+
+                    {
+                        label: "Medium",
+                        data: mediumData.data,
+                    },
+
+                    {
+                        label: "Hard",
+                        data: hardData.data,
+                    }
+                    
+                ]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        })
+        
+    }
+
+    function createIntrest(title, id)
+    {
+       var html = `<div class = "card card${id}">`;
+       html += `<div class="container">`;
+       html += `<img src="./assets/Test/1.png" alt=${title}>`;
+       html += `</div>`;
+       html += `<div class="details">`;
+       html += `<h3>${title}</h3>`;
+       html += `<p></p>`;
+       html += `</div>`;
+       html += `</div>`;
+       $(".Intrests div.master").append(html); //Append to Intrests Section
+    }
+
+    function displayIntrests()
+    {
+        const data = ["Reading", "Watching", "Music", "Gaming", "Learning"]
+        
+        for(var i = 0; i < data.length; i++)
+        {
+            createIntrest(data[i], i);
+        }   
+    }
 
     function makeCarousel(carousel)
     {
@@ -79,7 +225,7 @@ $(document).ready(function()
         }
         html += "</ul>" //End of Tools Section
         html += "<a href='"+ Git +"'>Github</a>"
-            html += "<a href='"+ Demo +"'>Live Demo</a>"
+        html += "<a href='"+ Demo +"'>Live Demo</a>"
         html += "</div>" //End of Project Description Section
 
         return html;
@@ -101,44 +247,43 @@ $(document).ready(function()
 
     function makeProjects()
     {
-        for(var i = 0; i < projects.length; i++)
+        $.getJSON("./projects.json", function(data)
         {
-            var project = projects[i];
+            for(var i = 0; i < data.projects.length; i++)
+            {
+                var project = data.projects[i];
 
-            var html = `<div id="Project-${i}" class="Project">`;
+                var html = `<div id="Project-${i}" class="Project">`;
 
-            html += displayDescription(project.title, project.description, project.tools, project.git, project.demo);
+                html += displayDescription(project.title, project.description, project.tools, project.git, project.demo);
 
-            html += displayImages(project.image);
+                html += displayImages(project.image);
 
-            html += "</div>" //End of Project Card
+                html += "</div>"; //End of Project Card
 
-            
-
-            $("#Projects").append(html); //Append to Projects Section
-            
-            const carousel = document.querySelector(`#Project-${i} .Carousel`);
-            makeCarousel(carousel);
-        }
+                $("#Projects").append(html); //Append to Projects Section
+                
+                const carousel = document.querySelector(`#Project-${i} .Carousel`);
+                makeCarousel(carousel);
+            }
+        });
     }
 
+    function downloadResume(event) {
+        event.preventDefault();
+        var resumeUrl = event.target.href;
+        window.location.href = resumeUrl;
+    }
 
-    
+   
   
       
-      
-
-    const p0 = new project("Test","Filler words",["images/1.png","images/4.png","images/5.png"],["Swift","SQL","API"], "");
-    const p1 = new project("LEDGERº","Open source manga reading application for IOS/iPadOS",["images/project-1.png"],["Swift","OOP","Core Data","Xcode","API","Web Scraping"], "https://github.com/MaFalana/LEDGER-","https://testflight.apple.com/join/947cRtnp");
-    const p2 = new project("CS Paint","A simple drawing application",["images/project-5.png"],["Java","GUI","Serialization","Object Oriented Programming"], "https://github.com/MaFalana/CS-Paint","");
-    const p3 = new project("What's That Color","A color scaninng app",["images/project-5.png"],["Swift","Mobile Development","OOP"], "https://github.com/MaFalana/What-s-That-Color-", "");
-    const p4 = new project("Kazaam","Multimedia scanning application",["images/project-5.png"],["Swift","API","SOLID Principles","OOP"], "https://github.com/MaFalana/Kazaam","");
-    const p5 = new project("Mahjong CS","A simple Mahjong game",["images/project-5.png"],["C++","ReactJs","GUI","SOLID Principles","Abstract Data Types","Server","OOP"], "https://github.com/MaFalana/Mahjong-CS", "https://mafalana.github.io/Mahjong/");
-    const p6 = new project("Mytunes","Server-side music streaming application",["images/a.png","images/b.png","images/c.png"],["Php","Html","CSS","API","OOP"], "https://github.com/MaFalana/Mytunes","https://mafalana.github.io/Mytunes/");
+    displayStats();
+    displayIntrests() 
     makeProjects();
     
 
-    
+    //Event Listeners
 
     $(".Project").on("scroll", function() {
       var visibleProject = null;
@@ -164,6 +309,8 @@ $(document).ready(function()
         visibleProject.addClass("active");
       }
     });
+
+    
     
     
     
