@@ -143,7 +143,7 @@ $(document).ready(function()
         var game = data.response.games[0]; //assigns variable from json data
         console.log(data);
         var title = game.name;
-        var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+        var image = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
         //var image = getGrid(game.appid);
         createGame(game.appid, image, title);
     });
