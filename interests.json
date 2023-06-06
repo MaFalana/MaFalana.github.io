@@ -2,11 +2,18 @@ https://api.music.apple.com/v1/me/recent/played?limit=10 //Gets 10 recently play
 
 https://api.music.apple.com/v1/me/history/heavy-rotation?limit=10  //Gets 10 most played songs
 
-https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=440&count=3 
 
 http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=0D836EDE33B2BBFA7AB2EF93DF2FEBFF&steamid=76561199242197802 // Gets recently played gmes
 
-http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.jpg
+http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.jpg //Gets the icon for the game from steam
+
+https://www.steamgriddb.com/api/v2/grids/{platform}/{id*} //Gets the grid for the game from steamgriddb using steam and the appid
+
+https://www.steamgriddb.com/api/v2/grids/steam/200260
+
+b067ec1341a4f261e19156d57226ce32 // Grid api key
+
+H5YZQ5ZKZ4 //Apple Music API Key?
 
 {
     "Intrests":
@@ -20,7 +27,7 @@ http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.j
             "activity":"Music",
             "url":"https://api.music.apple.com/v1/me/recent/played?limit=10"
         },
-        
+
         {
             "activity":"News",
             "url":"https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=440&count=3"

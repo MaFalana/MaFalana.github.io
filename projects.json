@@ -30,7 +30,7 @@
         {
             "title": "CS Paint",
             "description": "A simple drawing application",
-            "image": ["assets/CS Paint/1.png"],
+            "image": ["assets/CS-Paint/1.png"],
             "tools": ["Java","GUI","Serialization","Object Oriented Programming"],
             "git": "https://github.com/MaFalana/CS-Paint",
             "demo": ""

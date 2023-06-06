@@ -8,10 +8,14 @@
  MODIFICATION HISTORY:
 09/21/2022: Original Build
 ***************************************/
+//import getRecentGames from './intrests.js';
+//import {getRecentGames, createGame} from './intrests.js';
 
 $(document).ready(function() 
 {
     //Functions
+    
+   
 
     function displayStats() // Displays leetcode stattistics
     {
@@ -40,37 +44,43 @@ $(document).ready(function()
 
     }
 
-    function createIntrest(activity, title, id)
+    function createIntrest(activity)
     {
-      if(activity == "Gaming")
+      
+      switch (activity) 
       {
-        //createGame(id, title);
-        getRecentGames();
-      }
-      else if(activity == "Reading")
-      {
-        //createBook(id, title);
-      }
-      else if(activity == "Watching")
-      {
-        //createShow(id, title);
-      }
-      else if(activity == "Music")
-      {
-        //createMusic(id, title);
-      }
-      else if(activity == "Learning")
-      {
-        // var html = `<div class = "card card${id}">`;
-        // html += `<div class="container">`;
-        // html += `<img src="./assets/Test/1.png" alt=${title}>`;
-        // html += `</div>`;
-        // html += `<div class="details">`;
-        // html += `<h3>${title}</h3>`;
-        // html += `<p></p>`;
-        // html += `</div>`;
-        // html += `</div>`;
-        // $(".Intrests div.master").append(html); //Append to Intrests Section
+        case "Reading":
+          
+          break;
+        case "Watching":
+          // createBook(id, title);
+          break;
+
+        case "Music":
+          // createShow(id, title);
+          //getRecentTracks2();
+          break;
+
+        case "Gaming":
+          getRecentGames();
+          break;
+
+        case "Learning":
+          break;
+
+        default:
+          var html = `<div class = "card card${activity}">`;
+          html += `<div class="container">`;
+          html += `<img src="./assets/Test/1.png" alt=${activity}>`;
+          html += `</div>`;
+          html += `<div class="details">`;
+          html += `<h3>${activity}</h3>`;
+          html += `<p></p>`;
+          html += `</div>`;
+          html += `</div>`;
+          $(".Intrests div.master").append(html); //Append to Intrests Section
+          break;
+
       }
        
     }
@@ -81,7 +91,7 @@ $(document).ready(function()
         
         for(var i = 0; i < data.length; i++)
         {
-            createIntrest(data[i], i);
+            createIntrest(data[i]);
         } 
     }
 
@@ -122,36 +132,95 @@ $(document).ready(function()
         window.location.href = resumeUrl;
     }
 
-   function getRecentGames()
-   {
-      const url = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=0D836EDE33B2BBFA7AB2EF93DF2FEBFF&steamid=76561199242197802";
-      $.getJSON(url, function(data) // Grabs Projects from JSON file
-      {
-          //for(var i = 0; i < data.games.length; i++)
-          //{
-              var game = data.games[0]; //assigns variable from json data
-              console.log(game);
-              var title = game.name;
-              var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_logo_url}.jpg`;
-              createGame(game.appid, image, title);
-          //}
-      });
-   }
+     function getRecentGames()
+{
+    const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
+    const steamID = "76561199242197802";
+    const url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
+
+    $.getJSON(url, function(data) // Grabs Projects from JSON file
+    {
+        var game = data.response.games[0]; //assigns variable from json data
+        console.log(data);
+        var title = game.name;
+        //var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+        var image = getGrid(game.appid);
+        createGame(game.appid, image, title);
+    });
+}
+
+function getGrid(id) {
+  const key = "b067ec1341a4f261e19156d57226ce32";
+  const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}`;
+
+  return fetch(url, {
+    headers: {
+      Authorization: `Bearer ${key}`,
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch grid data");
+      }
+      return response.json();
+    })
+    .then(data => {
+      var source = data.response[0];
+      console.log(source);
+      var image = source.url;
+      return image;
+    })
+    .catch(error => {
+      console.error("Error fetching grid data:", error);
+    });
+}
+
+ function createGame(id, image, title)
+{
+    var html = `<div class = "card card${id}">`;
+    html += `<div class="container">`;
+    html += `<img src="${image}" alt=${title}>`;
+    html += `</div>`;
+    html += `<div class="details">`;
+    html += `<h3>${title}</h3>`;
+    html += `<p></p>`;
+    html += `</div>`;
+    html += `</div>`;
+    $(".Intrests div.master").append(html); //Append to Intrests Section
+}
+
+  //  function getRecentGames()
+  //  {
+  //     const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
+  //     const steamID = "76561199242197802";
+  //     const url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
+
+  //     $.getJSON(url, function(data) // Grabs Projects from JSON file
+  //     {
+  //       var game = data.response.games[0]; //assigns variable from json data
+  //       console.log(data);
+  //       var title = game.name;
+  //       var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+  //       createGame(game.appid, image, title);
+  //     });
+  //  }
 
 
-   function createGame(id, image, title)
-   {
-      var html = `<div class = "card card${id}">`;
-      html += `<div class="container">`;
-      html += `<img src="${image}" alt=${title}>`;
-      html += `</div>`;
-      html += `<div class="details">`;
-      html += `<h3>${title}</h3>`;
-      html += `<p></p>`;
-      html += `</div>`;
-      html += `</div>`;
-      $(".Intrests div.master").append(html); //Append to Intrests Section
-   }
+
+
+  //  function createGame(id, image, title)
+  //  {
+  //     var html = `<div class = "card card${id}">`;
+  //     html += `<div class="container">`;
+  //     html += `<img src="${image}" alt=${title}>`;
+  //     html += `</div>`;
+  //     html += `<div class="details">`;
+  //     html += `<h3>${title}</h3>`;
+  //     html += `<p></p>`;
+  //     html += `</div>`;
+  //     html += `</div>`;
+  //     $(".Intrests div.master").append(html); //Append to Intrests Section
+  //  }
   
       
     displayStats();
