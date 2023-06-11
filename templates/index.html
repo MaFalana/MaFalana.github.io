@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Make an AJAX request to the server to get the developer token
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/get_token', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var developerToken = response.developerToken;
+                    console.log(response);
+                    // Use the developer token with MusicKit JS
+                    MusicKit.configure({
+                        developerToken: developerToken,
+                        app: {
+                            name: 'Your App Name',
+                            build: '1.0.0'
+                        }
+                    });
+
+                    // Use MusicKit JS API methods
+                    MusicKit.getInstance().api.library.songs().then(function (response) {
+                        console.log(response.songs);
+                        // Process the response data
+                    }).catch(function (error) {
+                        console.error(error);
+                        // Handle error
+                    });
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

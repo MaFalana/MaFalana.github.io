@@ -14,8 +14,38 @@
 $(document).ready(function() 
 {
     //Functions
-    
-   
+    const musicKit = MusicKit.configure({
+      developerToken: 'eyJhbGciOiJFUzI1NiIsImtpZCI6Ikg1WVpRNVpLWjQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJYMzM5Mkg3RzQ0IiwiaWF0IjoxNjg2NDQyMDI2LCJleHAiOjE3MDE5Nzk2MjZ9.T52pLTXF9c5bHbBVClCJYPnNHYbO9U0lVqLG6X7WG8KpHe3hZqL_34ZKiZBt3B-XqcmeTA4XYX8skn3xSuHOEQ',
+      app: {
+          name: 'Portfolio',
+          build: '1.0'
+      }
+  });
+  console.log(musicKit.musicUserToken);
+  // Request authorization from the user
+  musicKit.authorize()
+      .then((response) => {
+          // Retrieve the Music User Token
+          const musicUserToken = response.authorization.musicUserToken;
+  
+          // Send the Music User Token back to the server
+          fetch('/api/Music', {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ 'musicUserToken': musicUserToken })
+          })
+          .then((response) => {
+              // Handle the server response
+          })
+          .catch((error) => {
+              // Handle error
+          });
+      })
+      .catch((error) => {
+          // Handle error
+      });
 
     function displayStats() // Displays leetcode stattistics
     {
@@ -47,41 +77,15 @@ $(document).ready(function()
     function createIntrest(activity)
     {
       
-      switch (activity) 
+      const url = `http://127.0.0.1:5000/api/${activity}`;
+
+      $.getJSON(url, function(data) // Grabs Projects from JSON file
       {
-        case "Reading":
-          
-          break;
-        case "Watching":
-          // createBook(id, title);
-          break;
+          console.log(data);
+          makeIntrest(data.id, data.title, data.image, data.description);
+      });
 
-        case "Music":
-          // createShow(id, title);
-          //getRecentTracks2();
-          break;
-
-        case "Gaming":
-          getRecentGames();
-          break;
-
-        case "Learning":
-          break;
-
-        default:
-          var html = `<div class = "card card${activity}">`;
-          html += `<div class="container">`;
-          html += `<img src="./assets/Test/1.png" alt=${activity}>`;
-          html += `</div>`;
-          html += `<div class="details">`;
-          html += `<h3>${activity}</h3>`;
-          html += `<p></p>`;
-          html += `</div>`;
-          html += `</div>`;
-          $(".Intrests div.master").append(html); //Append to Intrests Section
-          break;
-
-      }
+      
        
     }
 
@@ -95,6 +99,19 @@ $(document).ready(function()
         } 
     }
 
+    function makeIntrest(id, title, image, description)
+    {
+        var html = `<div class = "card card${id}">`;
+          html += `<div class="container">`;
+          html += `<img src=${image} alt=${id}>`;
+          html += `</div>`;
+          html += `<div class="details">`;
+          html += `<h3>${title}</h3>`;
+          html += `<p>${description}</p>`;
+          html += `</div>`;
+          html += `</div>`;
+          $(".Intrests div.master").append(html); //Append to Intrests Section
+    }
 
     function displayProjects()
     {
@@ -132,84 +149,47 @@ $(document).ready(function()
         window.location.href = resumeUrl;
     }
 
-function getRecentGames()
-{
-    const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
-    const steamID = "76561199242197802";
-    const url = `https://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
 
-    $.getJSON(url, function(data) // Grabs Projects from JSON file
-    {
-        var game = data.response.games[0]; //assigns variable from json data
-        console.log(data);
-        var title = game.name;
-        //var image = `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
-        var image = getGrid(game.appid);
-        createGame(game.appid, image, title);
-    });
+
+
+
+
+
+function sendRequest() {
+  var client_id = '24a98e8a81ac4516ba6d02b77e22aa05';
+  var client_secret = '1c32cc6b901943c789d11800568ccb9b';
+
+  var authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: {
+      'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret)
+    },
+    form: {
+      grant_type: 'client_credentials',
+      scope: 'user-read-recently-played' // Add the desired scopes here
+    },
+    json: true
+  };
+
+  return fetch(authOptions.url, {
+    method: 'POST',
+    headers: {
+      'Authorization': authOptions.headers.Authorization
+    },
+    body: new URLSearchParams(authOptions.form)
+    
+  })
+  .then(response => response.json())
+  .then(data => {
+    var token = data.access_token;
+    console.log(data);
+    console.log(token);
+    return token;
+  });
 }
 
-function getGrid(id) //Method to get decent cover art of game
-{
-    const key = "b067ec1341a4f261e19156d57226ce32";
-    const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}?key=${key}`;
-
-    $.getJSON(url, function(data) // Grabs Projects from JSON file
-    {
-        var source = data.response[0]; //assigns variable from json data
-        console.log(source);
-        var image = source.url;
-        return image;
-    });
-}
 
 
- function createGame(id, image, title)
-{
-    var html = `<div class = "card card${id}">`;
-    html += `<div class="container">`;
-    html += `<img src="${image}" alt=${title}>`;
-    html += `</div>`;
-    html += `<div class="details">`;
-    html += `<h3>${title}</h3>`;
-    html += `<p></p>`;
-    html += `</div>`;
-    html += `</div>`;
-    $(".Intrests div.master").append(html); //Append to Intrests Section
-}
-
-  //  function getRecentGames()
-  //  {
-  //     const key = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
-  //     const steamID = "76561199242197802";
-  //     const url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${key}&steamid=${steamID}`;
-
-  //     $.getJSON(url, function(data) // Grabs Projects from JSON file
-  //     {
-  //       var game = data.response.games[0]; //assigns variable from json data
-  //       console.log(data);
-  //       var title = game.name;
-  //       var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
-  //       createGame(game.appid, image, title);
-  //     });
-  //  }
-
-
-
-
-  //  function createGame(id, image, title)
-  //  {
-  //     var html = `<div class = "card card${id}">`;
-  //     html += `<div class="container">`;
-  //     html += `<img src="${image}" alt=${title}>`;
-  //     html += `</div>`;
-  //     html += `<div class="details">`;
-  //     html += `<h3>${title}</h3>`;
-  //     html += `<p></p>`;
-  //     html += `</div>`;
-  //     html += `</div>`;
-  //     $(".Intrests div.master").append(html); //Append to Intrests Section
-  //  }
   
       
     displayStats();

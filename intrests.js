@@ -18,6 +18,7 @@ export function getRecentGames()
 
 export function getGrid(id) //Method to get decent cover art of game
 {
+  
     const key = "b067ec1341a4f261e19156d57226ce32";
     const url = `https://www.steamgriddb.com/api/v2/grids/steam/${id}?key=${key}`;
 
@@ -44,6 +45,62 @@ export function createGame(id, image, title)
     $(".Intrests div.master").append(html); //Append to Intrests Section
 }
 
+
+
+export function sendRequest()
+{
+  var client_id = '24a98e8a81ac4516ba6d02b77e22aa05';
+  var client_secret = '1c32cc6b901943c789d11800568ccb9b';
+
+var authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  headers: {
+    'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64'))
+  },
+  form: {
+    grant_type: 'client_credentials'
+  },
+  json: true
+};
+
+request.post(authOptions, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+    var token = body.access_token;
+  }
+});
+
+}
+
+export function getRecentlyPlayed()
+{
+  const clientID = "0D836EDE33B2BBFA7AB2EF93DF2FEBFF";
+  const clientSecret = "76561199242197802";
+  const url = `https://api.spotify.com/v1/me/player/recently-played`;
+
+    $.getJSON(url, function(data) // Grabs Projects from JSON file
+    {
+        var game = data.response.games[0]; //assigns variable from json data
+        console.log(data);
+        var title = game.name;
+        //var image = `http://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
+        var image = getGrid(game.appid);
+        createGame(game.appid, image, title);
+    });
+}
+
+export function createSong(id, image, title, artist)
+{
+    var html = `<div class = "card card${id}">`;
+    html += `<div class="container">`;
+    html += `<img src="${image}" alt=${title}>`;
+    html += `</div>`;
+    html += `<div class="details">`;
+    html += `<h3>${title}</h3>`;
+    html += `<p>${artist}</p>`;
+    html += `</div>`;
+    html += `</div>`;
+    $(".Intrests div.master").append(html); //Append to Intrests Section
+}
 
 function getRecentTracks() 
 {
