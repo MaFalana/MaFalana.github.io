@@ -13,6 +13,8 @@
 
 $(document).ready(function() 
 {
+
+  
     //Functions
     const musicKit = MusicKit.configure({
       developerToken: 'eyJhbGciOiJFUzI1NiIsImtpZCI6Ikg1WVpRNVpLWjQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJYMzM5Mkg3RzQ0IiwiaWF0IjoxNjg2NDQyMDI2LCJleHAiOjE3MDE5Nzk2MjZ9.T52pLTXF9c5bHbBVClCJYPnNHYbO9U0lVqLG6X7WG8KpHe3hZqL_34ZKiZBt3B-XqcmeTA4XYX8skn3xSuHOEQ',
@@ -77,7 +79,8 @@ $(document).ready(function()
     function createIntrest(activity)
     {
       
-      const url = `http://127.0.0.1:5000/api/${activity}`;
+      //const url = `http://127.0.0.1:5000/api/${activity}`;
+      const url = `https://portfolio-server-omega-gray.vercel.app/${activity}`
 
       $.getJSON(url, function(data) // Grabs Projects from JSON file
       {

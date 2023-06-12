@@ -34,18 +34,20 @@ def getAppleMusic(musicUserToken): #Get the most recently played song from Apple
 
     response = requests.get(url, headers=headers)
     data = response.json()
-    print(response.content)
+    #print(response.content)
     
     source = data['data'][0]
     #print(source)
     w = source['attributes']['artwork']['width']
     h = source['attributes']['artwork']['height']
+    preview = source['attributes']['previews'][0]['url']
 
     DATA = {
         'id': source['id'],
         'title': source['attributes']['name'],
         'image': source['attributes']['artwork']['url'].format(w=w, h=h),
         'description': source['attributes']['artistName'],
+        'extras':  [preview]
     }
     
     print(DATA)
@@ -118,7 +120,8 @@ def getRecentGames(): # Method to get most recently played game from Steam
         'id': game['appid'],
         'title': title,
         'image': image,
-        'description': "This is a game"
+        'description': "This is a game",
+        'extras': ''
     }
     
     return DATA
@@ -143,6 +146,14 @@ def getGrid(id): # Method to get decent cover art of game
 
 app = Flask(__name__) # Initialize the Flask application
 CORS(app) # and enable CORS
+
+@app.route('/Start', methods=['GET'])
+def Start():
+   app.run(host='0.0.0.0', port=5000)#server logic here
+  # This code will be executed when the /start-server route is accessed
+  # You can start listening on a specific port or perform any necessary initialization
+
+  #return 'Server started successfully'
 
 @app.route('/api/Music', methods=['GET']) # Recently played songs endpoint
 @cross_origin()
@@ -175,6 +186,6 @@ def callback():
 
     return jsonify({'message': 'Token received'})
 
-
-if __name__ == '__main__': #Run the server
-    app.run()
+# Start the server when the script is run directly
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
