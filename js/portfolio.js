@@ -134,8 +134,8 @@ $(document).ready(function()
         
         for(var i = 0; i < activity.length; i++)
         {
-          const url = `http://127.0.0.1:5000/${activity[i]}`;
-          //const url = `https://portfolio-server-omega-gray.vercel.app/${activity[i]}`
+          //const url = `http://127.0.0.1:5000/${activity[i]}`;
+          const url = `https://portfolio-server-omega-gray.vercel.app/${activity[i]}`
 
           $.getJSON(url, function(data) // Grabs Projects from JSON file
           {
