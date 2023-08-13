@@ -13,93 +13,6 @@
 
 $(document).ready(function() 
 {
-
-  
-    //Functions
-    async function initializeMusicKit() {
-      try {
-        const developerToken = await getToken();
-      
-        const musicKit = MusicKit.configure({
-          developerToken: developerToken,
-          app: {
-            name: 'Portfolio',
-            build: '1.0'
-          }
-        });
-    
-        //console.log(musicKit.musicUserToken);
-        await sendTokens(developerToken, musicKit.musicUserToken);
-    
-        // Rest of your music-related code
-    
-      } catch (error) {
-        console.log(error);
-        // Handle the error
-      }
-    }
-    
-    initializeMusicKit()
-      .then(() => {
-        
-      })
-      .catch(error => console.log(error));
-    
-  
-      async function getToken() {
-        const url = 'http://127.0.0.1:5000/token';
-      
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          //console.log(data);
-          return data.token;
-        } catch (error) {
-          console.log(error);
-          throw error;
-        }
-      }
-      
-      async function sendTokens(devToken, musicUserToken) {
-        const url = 'http://127.0.0.1:5000/token';
-      
-        try {
-          const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ devToken: devToken, musicUserToken: musicUserToken })
-          });
-      
-          if (response.ok) {
-            // The request was successful, handle the response from the server
-            const responseData = await response.json();
-            console.log(responseData);
-          } else {
-            // The request was not successful, handle the error
-            throw new Error('Request failed with status: ' + response.status);
-          }
-        } catch (error) {
-          console.log(error);
-          throw error;
-        }
-      }
-      
-      async function getMusic() {
-        const url = 'http://127.0.0.1:5000/Music';
-      
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          //console.log(data);
-          makeIntrest(data.id, data.title, data.image, data.description);
-        } catch (error) {
-          console.log(error);
-          throw error;
-        }
-      }
-      
       
     function displayStats() // Displays leetcode stattistics
     {
@@ -134,8 +47,8 @@ $(document).ready(function()
         
         for(var i = 0; i < activity.length; i++)
         {
-          //const url = `http://127.0.0.1:5000/${activity[i]}`;
-          const url = `https://portfolio-server-omega-gray.vercel.app/${activity[i]}`
+          const url = `http://127.0.0.1:5000/${activity[i]}`;
+          //const url = `https://portfolio-server-omega-gray.vercel.app/${activity[i]}`
 
           $.getJSON(url, function(data) // Grabs Projects from JSON file
           {
