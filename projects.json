@@ -13,7 +13,7 @@
         {
             "title": "CS Paint",
             "description": "Inspired by Microsoft's MS Paint, I sought out to recreate the familiar and user-friendly drawing experience while showcasing the programming concepts I learned throughout my semester in CSCI 2400. CS Paint provides a simple and intuitive interface for users to create and edit drawings. It offers various tools and features commonly found in drawing applications, allowing users to express their creativity and create artwork.",
-            "image": ["https://placehold.co/600x400"],
+            "image": ["./images/cs-paint.png"],
             "tools": ["Java","GUI","Serialization","Object Oriented Programming"],
             "git": "https://github.com/MaFalana/CS-Paint",
             "demo": ""
