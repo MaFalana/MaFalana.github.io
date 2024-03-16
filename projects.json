@@ -76,7 +76,7 @@
         {
             "title": "BookClub",
             "description": "Book Scanning App for iOS",
-            "image": "./images/BookClub App Icon.png",
+            "image": "./images/BookClub.png",
             "tools": ["Swift","JSON","API","SwiftData"],
             "git": "https://github.com/MaFalana/BookClub",
             "demo": ""
