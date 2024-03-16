@@ -68,9 +68,18 @@
             "title": "EZ-Shift",
             "description": "Platform built to convert playlists from one music streaming service to another",
             "image": "https://placehold.co/600x400",
-            "tools": ["Html","CSS","JS", "Python","Server-Side"],
+            "tools": ["Html","CSS","JS","Python","Server-Side"],
             "git": "https://github.com/MaFalana/EZ-Shift",
             "demo": "https://mafalana.github.io/EZ-Shift/"
+        },
+
+        {
+            "title": "BookClub",
+            "description": "Book Scanning App for iOS",
+            "image": "./images/BookClub App Icon.png",
+            "tools": ["Swift","JSON","API","SwiftData"],
+            "git": "https://github.com/MaFalana/BookClub",
+            "demo": ""
         }
 
     ]
