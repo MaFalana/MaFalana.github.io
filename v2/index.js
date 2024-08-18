@@ -47,7 +47,7 @@ $(document).ready(function()
         html += `</div>`;
         html += `</div>`;
 
-        $("section#Projects div div.Projects").append(html); //Append to Projects Section
+        $("section h2#Projects div.Projects").append(html); //Append to Projects Section
     }
 
     
