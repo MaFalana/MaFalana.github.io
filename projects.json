@@ -4,7 +4,7 @@
         {
             "title": "LEDGERº",
             "description": "Experience the world of manga like never before with this open-source manga reading application for iOS and iPadOS. Dive into a diverse library of manga titles from various genres and enjoy a seamless reading experience on your Apple devices. With its user-friendly interface and customizable features, this app is a must-have for manga enthusiasts seeking an immersive and enjoyable way to read their favorite stories on the go.",
-            "image": ["./images/ledger.png"],
+            "image": ["../images/ledger.png"],
             "tools": ["Swift","OOP","Core Data","Xcode","API","Web Scraping"],
             "git": "https://github.com/MaFalana/LEDGER-",
             "demo": "https://testflight.apple.com/join/947cRtnp"
