@@ -31,7 +31,7 @@ $(document).ready(function()
 
     function createProject(source)
     {
-        var html = `<div class="card" style="width: 18.75rem;">`;
+        var html = `<div class="card shadow" style="width: 18.75rem;">`;
         html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}"/>`;
         html += `<div class="card-body">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
