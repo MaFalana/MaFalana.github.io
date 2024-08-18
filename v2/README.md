@@ -17,3 +17,9 @@ To View the live site click [here &rarr;](https://mafalana.github.io/v2.html)
 ![Navbar](https://www.gethalfmoon.com/docs/navbar/)
 
 ![Scrollspy](https://www.gethalfmoon.com/docs/scrollspy/)
+
+![Carousel](https://www.gethalfmoon.com/docs/carousel)
+
+![List group](https://www.gethalfmoon.com/docs/list-group)
+
+![Switch](https://www.gethalfmoon.com/docs/checkbox-and-radio/#switch)

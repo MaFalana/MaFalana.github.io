@@ -29,13 +29,13 @@ $(document).ready(function()
     function createProject(source)
     {
         var html = `<div class="card" style="width: 18.75rem;">`;
-        html += `<img src=${source.image} class="card-img-top" alt="Project ${source.id}"/>`;
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}"/>`;
         html += `<div class="card-body">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
         html += `<p class="card-text">${source.description}</p>`;
 
-        html += `<ul class="list-group list-group-flush">`;
+        html += `<ul class="list-group list-group-horizontal">`;
         for(var i = 0; i < source.tools.length; i++)
         {
             html += `<li class="list-group-item">${source.tools[i]}</li>`; //assigns variable from json data
@@ -47,7 +47,7 @@ $(document).ready(function()
         html += `</div>`;
         html += `</div>`;
 
-        $("section div.bg-body h2#Projects div.Projects").append(html); //Append to Projects Section
+        $("section div.Projects").append(html); //Append to Projects Section
     }
 
     
