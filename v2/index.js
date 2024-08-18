@@ -12,8 +12,8 @@ MODIFICATION HISTORY:
 
 $(document).ready(function() 
 {
-    const getStoredTheme = () => localStorage.getItem("theme");
-    const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+    //const getStoredTheme = () => localStorage.getItem("theme");
+    //const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
 
     function displayProjects()
     {
