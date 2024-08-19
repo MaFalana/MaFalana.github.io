@@ -23,3 +23,5 @@ To View the live site click [here &rarr;](https://mafalana.github.io/v2.html)
 ![List group](https://www.gethalfmoon.com/docs/list-group)
 
 ![Switch](https://www.gethalfmoon.com/docs/checkbox-and-radio/#switch)
+
+![Toggle buttons](https://www.gethalfmoon.com/docs/checkbox-and-radio/#toggle-buttons)

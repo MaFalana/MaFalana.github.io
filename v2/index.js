@@ -12,8 +12,7 @@ MODIFICATION HISTORY:
 
 $(document).ready(function() 
 {
-    //const getStoredTheme = () => localStorage.getItem("theme");
-    //const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+    
 
     function displayProjects()
     {
@@ -45,8 +44,9 @@ $(document).ready(function()
         }
         html += `</ul>`;
 
-        html += `<a href=${source.git} class="card-link" title="View Source Code"></a>`;
-        html += `<a href=${source.demo} class="card-link" title="View Demo"></a>`;
+        html += `<a href=${source.git} class="card-link" title="">View Source Code</a>`;
+        html += `<a href=${source.demo} class="card-link" title="">View Demo</a>`;
+        
         html += `</div>`;
         html += `</div>`;
 
@@ -71,22 +71,113 @@ $(document).ready(function()
 
     function createInterest(source)
     {
-        var html = `<div class="card shadow" style="width: 18.75rem;">`;
-        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}"/>`;
+        if (source.title == "NieR Replicant ver.1.22474487139...")
+        {
+            var html = `<div class="carousel-item card shadow active" style="width: 18.75rem;">`;
+        }
+        else
+        {
+            var html = `<div class="carousel-item card shadow" style="width: 18.75rem;">`;
+        }
+        
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id}"/>`;
         html += `<div class="card-body">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
         html += `<p class="card-text">${source.description}</p>`;
-        html += `<a href=${source.git} class="card-link" title="View Source Code"></a>`;
-        html += `<a href=${source.demo} class="card-link" title="View Demo"></a>`;
         html += `</div>`;
         html += `</div>`;
 
-        $("div.interests").append(html); //Append to Interests Section
+
+      
+
+        $("div.Interests").append(html); //Append to Interests Section
     }
     
-
+    function toggleDarkMode() {
+        'use strict';
+      
+        const getStoredTheme = () => localStorage.getItem('theme');
+        const setStoredTheme = theme => localStorage.setItem('theme', theme);
+      
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme) {
+            return storedTheme;
+          }
+      
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+      
+        const setTheme = theme => {
+          if (theme === 'auto') {
+            $('html').attr('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          } else {
+            $('html').attr('data-bs-theme', theme);
+          }
+        };
+      
+        const showActiveTheme = (theme, focus = false) => {
+          const $themeSwitcher = $('#bd-theme');
+      
+          if (!$themeSwitcher.length) {
+            return;
+          }
+      
+          const $themeSwitcherText = $('#bd-theme-text');
+          const $activeThemeIcon = $('.theme-icon-active use');
+          const $btnToActive = $(`[data-bs-theme-value="${theme}"]`);
+          const svgOfActiveBtn = $btnToActive.find('svg use').attr('href');
+      
+          $('[data-bs-theme-value]').removeClass('active').attr('aria-pressed', 'false');
+          $btnToActive.addClass('active').attr('aria-pressed', 'true');
+          $activeThemeIcon.attr('href', svgOfActiveBtn);
+          const themeSwitcherLabel = `${$themeSwitcherText.text()} (${$btnToActive.data('bs-theme-value')})`;
+          $themeSwitcher.attr('aria-label', themeSwitcherLabel);
+      
+          if (focus) {
+            $themeSwitcher.focus();
+          }
+        };
+      
+        const toggleTheme = () => {
+          const currentTheme = getStoredTheme() || getPreferredTheme();
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          setStoredTheme(newTheme);
+          setTheme(newTheme);
+          showActiveTheme(newTheme);
+        };
+      
+        // Initial theme setup
+        setTheme(getPreferredTheme());
+        showActiveTheme(getPreferredTheme());
+      
+        // Listen for changes in system color scheme preferences
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme !== 'light' && storedTheme !== 'dark') {
+            setTheme(getPreferredTheme());
+          }
+        });
+      
+        // Handle theme switcher clicks
+        $('[data-bs-theme-value]').on('click', function() {
+          const theme = $(this).attr('data-bs-theme-value');
+          setStoredTheme(theme);
+          setTheme(theme);
+          showActiveTheme(theme, true);
+        });
+      
+        // Toggle theme when the function is called
+        toggleTheme();
+      }
+      
     displayProjects();
     displayInterests();
+    
+    //toggleDarkMode();
+
+    $(".form-check-input").click(toggleDarkMode)
+
 
 });  // end of $(document).ready()

@@ -4,7 +4,7 @@
         {
             "title": "LEDGERº",
             "description": "Experience the world of manga like never before with this open-source manga reading application for iOS and iPadOS. Dive into a diverse library of manga titles from various genres and enjoy a seamless reading experience on your Apple devices. With its user-friendly interface and customizable features, this app is a must-have for manga enthusiasts seeking an immersive and enjoyable way to read their favorite stories on the go.",
-            "image": ["./images/ledger.png"],
+            "image": ["../images/ledger.png"],
             "tools": ["Swift","OOP","Core Data","Xcode","API","Web Scraping"],
             "git": "https://github.com/MaFalana/LEDGER-",
             "demo": "https://testflight.apple.com/join/947cRtnp"
@@ -13,7 +13,7 @@
         {
             "title": "CS Paint",
             "description": "Inspired by Microsoft's MS Paint, I sought out to recreate the familiar and user-friendly drawing experience while showcasing the programming concepts I learned throughout my semester in CSCI 2400. CS Paint provides a simple and intuitive interface for users to create and edit drawings. It offers various tools and features commonly found in drawing applications, allowing users to express their creativity and create artwork.",
-            "image": ["./images/cs-paint.png"],
+            "image": ["../images/cs-paint.png"],
             "tools": ["Java","GUI","Serialization","Object Oriented Programming"],
             "git": "https://github.com/MaFalana/CS-Paint",
             "demo": ""
@@ -22,7 +22,7 @@
         {
             "title": "What's That Color",
             "description": "A color scanning app",
-            "image": "./images/color.png",
+            "image": "../images/color.png",
             "tools": ["Swift","Mobile Development","OOP"],
             "git": "https://github.com/MaFalana/What-s-That-Color-",
             "demo": ""
@@ -40,7 +40,7 @@
         {
             "title": "Mahjong CS",
             "description": "A simple Mahjong game",
-            "image": "./images/mahjong.png",
+            "image": "../images/mahjong.png",
             "tools": ["C++","ReactJs","GUI","SOLID Principles","ADT","Server","OOP"],
             "git": "https://github.com/MaFalana/Mahjong-CS",
             "demo": "https://mafalana.github.io/Mahjong/"
@@ -49,7 +49,7 @@
         {
             "title": "Mytunes",
             "description": "Server-side music streaming application",
-            "image": ["./images/mytunes.png"],
+            "image": ["../images/mytunes.png"],
             "tools": ["Php","Html","CSS","API","OOP"],
             "git": "https://github.com/MaFalana/Mytunes",
             "demo": "https://mafalana.github.io/Mytunes/"
@@ -76,7 +76,7 @@
         {
             "title": "BookClub",
             "description": "Book Scanning App for iOS",
-            "image": "./images/BookClub.png",
+            "image": "../images/BookClub.png",
             "tools": ["Swift","JSON","API","SwiftData"],
             "git": "https://github.com/MaFalana/BookClub",
             "demo": ""
