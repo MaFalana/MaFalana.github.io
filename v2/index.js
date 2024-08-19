@@ -50,11 +50,43 @@ $(document).ready(function()
         html += `</div>`;
         html += `</div>`;
 
-        $("section div.Projects").append(html); //Append to Projects Section
+        $("div.Projects").append(html); //Append to Projects Section
     }
 
+    function displayInterests()
+    {
+        const activity = ["Reading", "Watching", "Music", "Gaming", "Learning"]
+        
+        for(var i = 0; i < activity.length; i++)
+        {
+          //const url = `http://127.0.0.1:5000/${activity[i]}`;
+          const url = `https://portfolio-server-omega-gray.vercel.app/${activity[i]}`
+
+          $.getJSON(url, function(data) // Grabs Projects from JSON file
+          {
+              createInterest(data);
+          });
+        } 
+    }
+
+    function createInterest(source)
+    {
+        var html = `<div class="card shadow" style="width: 18.75rem;">`;
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}"/>`;
+        html += `<div class="card-body">`;
+        html += `<h5 class="card-title">${source.title}</h5>`;
+        html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
+        html += `<p class="card-text">${source.description}</p>`;
+        html += `<a href=${source.git} class="card-link" title="View Source Code"></a>`;
+        html += `<a href=${source.demo} class="card-link" title="View Demo"></a>`;
+        html += `</div>`;
+        html += `</div>`;
+
+        $("div.interests").append(html); //Append to Interests Section
+    }
     
 
     displayProjects();
+    displayInterests();
 
 });  // end of $(document).ready()
