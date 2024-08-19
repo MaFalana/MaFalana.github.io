@@ -1,7 +1,7 @@
 <!-- Version 2 of my portfolio -->
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="auto">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,7 +14,9 @@
   
   <!-- Halfmoon CSS -->
   <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" integrity="sha256-SsJizWSIG9JT9Qxbiy8xnYJfjCAkhEQ0hihxRn7jt2M=" crossorigin="anonymous">
-
+  <!-- Font Awesome CSS -->
+  <script src="https://kit.fontawesome.com/632888dccb.js" crossorigin="anonymous"></script>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
   <script src="../v2/index.js" type="module"></script>
   
@@ -24,39 +26,48 @@
 
   <!-- ***** Nav Bar ***** -->
 
-  <nav  id="scrollspy-1-navbar" class="navbar navbar-expand-lg"  style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
-    <div class="container-fluid">
+  <nav id="scrollspy-1-navbar" class="navbar navbar-expand-lg" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
+    <div class="container-fluid"  >
       <a class="navbar-brand" href="#">
         <!--<img src="..." alt="Logo" width="24" height="24" class="d-inline-block align-text-top">-->
         NNA LiK
       </a>
 
-      <ul class="nav nav-pills">
+      <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
+      <label class="btn btn-light" for="darkModeToggle"><i class="fas fa-moon"></i></label>
 
-        <div class="d-inline-block form-switch">
-          <input class="form-check-input" type="checkbox" value="" aria-label="Dark Mode Switch with no label" onclick="toggleDarkMode()">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-offcanvas" aria-controls="navbar-offcanvas" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" id="navbar-offcanvas">
+        <div class="offcanvas-header border-bottom">
+          <a class="navbar-brand m-0" href="#">
+            <img src="..." alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+            NNA LiK
+          </a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#About">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Interests">Interests</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-        <input type="checkbox" class="btn-check" id="example-checkbox-9" autocomplete="off" onclick="toggleDarkMode()">
-        <label class="btn btn-outline-primary" for="example-checkbox-9">Python</label>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#About">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#Experience">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#Projects">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#Interests">Interests</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#Contact">Contact</a>
-        </li>
-
-      </ul>
     </div>
   </nav>
   
@@ -73,17 +84,16 @@
 
     <!-- ***** Projects Section ***** -->
     
-    <div data-bs-spy="scroll" data-bs-target="#scrollspy-1-navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="bg-body p-3 overflow-y-auto" tabindex="2" style="max-height: 300px;">
+    <!-- <div data-bs-spy="scroll" data-bs-target="#scrollspy-1-navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="bg-body p-3 overflow-y-auto" tabindex="2" style="max-height: 300px;">-->
       <h2 id="Projects">Featured Projects</h2>
-      <a href="#Projects" class="fw-normal text-decoration-none mx-auto">#</a>
       <div class="container-fluid ">
-        <div class="row justify-content-md-center p-auto Projects">
+        <div class="row  Projects">
           <!-- Each div with the work__box class is a project. -->
 
         </div>
   
       </div>
-    </div>
+    <!-- </div>-->
    
 
 
@@ -118,15 +128,33 @@
     
     
 
-
+    <!-- ***** Contact Section ***** -->
     
 
    
-  <!-- ***** Footer ***** -->
+    <!-- ***** Footer ***** -->
 
-  <footer>
-    
-  </footer>
+    <footer role="contentinfo" class="footer">
+      <div class="justify-center">
+        <footer role="contentinfo" class="footer">
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">
+              <a href="https://github.com/MaFalana">
+                <img src="../images/github.svg" alt="Github"  width="40">
+              </a>
+            </li>
+        
+            <li class="list-group-item">
+              <a href="https://www.linkedin.com/in/mfalana">
+                <img src="../images/linkedin.svg" alt="Linkedin"  width="40">
+              </a>
+            </li>
+          </ul>
+          </footer>
+      </div>
+    </footer>
+
+  
 
   
  

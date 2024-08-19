@@ -3,85 +3,109 @@
         
         {
             "title": "LEDGERº",
+            "subtitle": "Mobile Application",
             "description": "Experience the world of manga like never before with this open-source manga reading application for iOS and iPadOS. Dive into a diverse library of manga titles from various genres and enjoy a seamless reading experience on your Apple devices. With its user-friendly interface and customizable features, this app is a must-have for manga enthusiasts seeking an immersive and enjoyable way to read their favorite stories on the go.",
             "image": ["../images/ledger.png"],
-            "tools": ["Swift","OOP","Core Data","Xcode","API","Web Scraping"],
+            "tools": ["Swift"],
             "git": "https://github.com/MaFalana/LEDGER-",
             "demo": "https://testflight.apple.com/join/947cRtnp"
         },
 
         {
             "title": "CS Paint",
+            "subtitle": "Java Application",
             "description": "Inspired by Microsoft's MS Paint, I sought out to recreate the familiar and user-friendly drawing experience while showcasing the programming concepts I learned throughout my semester in CSCI 2400. CS Paint provides a simple and intuitive interface for users to create and edit drawings. It offers various tools and features commonly found in drawing applications, allowing users to express their creativity and create artwork.",
             "image": ["../images/cs-paint.png"],
-            "tools": ["Java","GUI","Serialization","Object Oriented Programming"],
+            "tools": ["Java"],
             "git": "https://github.com/MaFalana/CS-Paint",
             "demo": ""
         },
 
         {
             "title": "What's That Color",
+            "subtitle": "Mobile Application",
             "description": "A color scanning app",
             "image": "../images/color.png",
-            "tools": ["Swift","Mobile Development","OOP"],
+            "tools": ["Swift"],
             "git": "https://github.com/MaFalana/What-s-That-Color-",
             "demo": ""
         },
 
         {
             "title": "Kazaam",
+            "subtitle": "Mobile Application",
             "description": "Multimedia scanning application",
             "image": "https://placehold.co/600x400",
-            "tools": ["Swift","API","SOLID Principles","OOP"],
+            "tools": ["Swift"],
             "git": "https://github.com/MaFalana/Kazaam",
             "demo": ""
         },
 
         {
             "title": "Mahjong CS",
+            "subtitle": "C++ Application",
             "description": "A simple Mahjong game",
             "image": "../images/mahjong.png",
-            "tools": ["C++","ReactJs","GUI","SOLID Principles","ADT","Server","OOP"],
+            "tools": ["C++","ReactJs"],
             "git": "https://github.com/MaFalana/Mahjong-CS",
             "demo": "https://mafalana.github.io/Mahjong/"
         },
 
         {
             "title": "Mytunes",
+            "subtitle": "Web Application",
             "description": "Server-side music streaming application",
             "image": ["../images/mytunes.png"],
-            "tools": ["Php","Html","CSS","API","OOP"],
+            "tools": ["Php","Html","CSS"],
             "git": "https://github.com/MaFalana/Mytunes",
             "demo": "https://mafalana.github.io/Mytunes/"
         },
 
         {
             "title": "QuizME",
+            "subtitle": "Web Application",
             "description": "Designed to be an immersive study tool with AI capabilities, used to create flash cards and quizzes for students, and matching games for memories",
             "image": "https://placehold.co/600x400",
-            "tools": ["OOP","MongoDB","API", "Html","CSS","Javascript","Typescript","Python","IOS", "Server-Side"],
+            "tools": ["MongoDB", "Html","CSS","JS","Typescript","Python"],
             "git": "https://github.com/MaFalana/QuizME",
             "demo": ""
         },
 
         {
             "title": "EZ-Shift",
+            "subtitle": "Web Application",
             "description": "Platform built to convert playlists from one music streaming service to another",
             "image": "https://placehold.co/600x400",
-            "tools": ["Html","CSS","JS","Python","Server-Side"],
+            "tools": ["Html","CSS","Javascript","Python"],
             "git": "https://github.com/MaFalana/EZ-Shift",
             "demo": "https://mafalana.github.io/EZ-Shift/"
         },
 
         {
             "title": "BookClub",
+            "subtitle": "Mobile Application",
             "description": "Book Scanning App for iOS",
             "image": "../images/BookClub.png",
-            "tools": ["Swift","JSON","API","SwiftData"],
+            "tools": ["Swift","JSON"],
             "git": "https://github.com/MaFalana/BookClub",
             "demo": ""
         }
 
+    ],
+
+    "links":[
+
+        {
+            "title": "Github",
+            "icon": "fa-brands fa-square-github",
+            "url": "https://github.com/MaFalana"
+        },
+        
+        {
+            "title": "LinkedIn",
+            "icon": "fa-brands fa-linkedin",
+            "url": "https://www.linkedin.com/in/malik-falana-b02338289/"
+        }
     ]
 }
 

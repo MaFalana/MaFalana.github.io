@@ -25,3 +25,7 @@ To View the live site click [here &rarr;](https://mafalana.github.io/v2.html)
 ![Switch](https://www.gethalfmoon.com/docs/checkbox-and-radio/#switch)
 
 ![Toggle buttons](https://www.gethalfmoon.com/docs/checkbox-and-radio/#toggle-buttons)
+
+![VSCode Icons](https://github.com/vscode-icons/vscode-icons/tree/master/icons)
+
+![VectorLogoZone](https://www.vectorlogo.zone/)
