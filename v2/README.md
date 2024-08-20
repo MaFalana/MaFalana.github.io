@@ -29,3 +29,5 @@ To View the live site click [here &rarr;](https://mafalana.github.io/v2.html)
 ![VSCode Icons](https://github.com/vscode-icons/vscode-icons/tree/master/icons)
 
 ![VectorLogoZone](https://www.vectorlogo.zone/)
+
+![Fixed top and bottom](https://www.gethalfmoon.com/docs/position/#fixed-top-and-bottom)

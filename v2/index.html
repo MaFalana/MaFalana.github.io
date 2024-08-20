@@ -1,7 +1,7 @@
 <!-- Version 2 of my portfolio -->
 
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -26,19 +26,22 @@
 
   <!-- ***** Nav Bar ***** -->
 
-  <nav id="scrollspy-1-navbar" class="navbar navbar-expand-sm" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
+  <nav id="scrollspy-1-navbar" class="navbar navbar-expand-sm fixed-top" style="background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);">
     <div class="container-fluid"  >
       <a class="navbar-brand" href="#">
         <!--<img src="..." alt="Logo" width="24" height="24" class="d-inline-block align-text-top">-->
         NNA LiK
       </a>
 
+      <div class="">
       <input type="checkbox" class="btn-check" id="darkModeToggle" autocomplete="off">
       <label class="btn btn-light" for="darkModeToggle"><i class="fas fa-moon"></i></label>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar-offcanvas" aria-controls="navbar-offcanvas" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+    </div>
+
       <div class="offcanvas offcanvas-end" id="navbar-offcanvas">
         <div class="offcanvas-header border-bottom">
           <a class="navbar-brand m-0" href="#">

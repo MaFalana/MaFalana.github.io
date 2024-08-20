@@ -44,8 +44,9 @@ $(document).ready(function()
             html += `<img src=../images/${source.tools[i]}.svg alt="${source.tools[i]} Svg Icon" width="40"/>`;
         }
         html += `</ul>`;
-        html += `<div class="container d-flex justify-content-center gap-3">`;
+        html += `<div class="hstack">`;
         html += `<a class="btn btn-primary" href=${source.git} role="button">Source Code</a>`;
+        html += `<div class="ms-auto"></div>`;
         html += `<a class="btn btn-primary" href=${source.demo} role="button">View Demo</a>`;
         html += `</div>`;
 
