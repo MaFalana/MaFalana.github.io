@@ -66,7 +66,7 @@
             "subtitle": "Web Application",
             "description": "Designed to be an immersive study tool with AI capabilities, used to create flash cards and quizzes for students, and matching games for memories",
             "image": "https://placehold.co/600x400",
-            "tools": ["MongoDB", "Html","CSS","JS","Typescript","Python"],
+            "tools": ["MongoDB", "Html","CSS","Javascript","Typescript","Python"],
             "git": "https://github.com/MaFalana/QuizME",
             "demo": ""
         },

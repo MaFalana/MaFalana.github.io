@@ -30,28 +30,27 @@ $(document).ready(function()
 
     function createProject(source)
     {
-      var html = `<div class="col">`;
-        html += `<div class="card shadow   mw-200 h-100 " style="width: 18.75rem;">`;
-        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}" height="300"/>`;
+        var html = `<div class="card shadow " style="width: 25rem;" >`;
+        html += `<img src=${source.image} class="card-img-top object-fit-cover" alt="Project ${source.id}" height="300" width="300" />`;
         html += `<div class="card-body" style="overflow: hidden;">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">${source.subtitle}</h6>`;
-        html += `<p class="card-text">${source.description}</p>`;
-
-        html += `<ul class="list-group list-group-horizontal ">`;
+        html += `<p class="card-text overflow-y-auto" >${source.description}</p>`;
+        
+        html += `<ul class="list-group list-group-horizontal  ">`;
         for(var i = 0; i < source.tools.length; i++)
         {
             //html += `<li class="list-group-item">${source.tools[i]}</li>`; //assigns variable from json data
             html += `<img src=../images/${source.tools[i]}.svg alt="${source.tools[i]} Svg Icon" width="40"/>`;
         }
         html += `</ul>`;
-
-        html += `<a class="btn btn-primary" href=${source.git} role="button">View Source Code</a>`;
+        html += `<div class="container d-flex justify-content-center gap-3">`;
+        html += `<a class="btn btn-primary" href=${source.git} role="button">Source Code</a>`;
         html += `<a class="btn btn-primary" href=${source.demo} role="button">View Demo</a>`;
-        
+        html += `</div>`;
+
         html += `</div>`;
         
-        html += `</div>`;
         html += `</div>`;
 
         $("div.Projects").append(html); //Append to Projects Section
@@ -75,8 +74,7 @@ $(document).ready(function()
 
     function createInterest(source)
     {
-      var html = `<div class="col-md-3">`;
-        html += `<div class="card shadow" style="width: 18.75rem;">`;
+        var html = `<div class="card shadow" style="width: 25rem;">`;
         
         html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id} height="200" width="200"/>`;
         html += `<div class="card-body">`;
@@ -85,10 +83,6 @@ $(document).ready(function()
         html += `<p class="card-text">${source.description}</p>`;
         html += `</div>`;
         html += `</div>`;
-        html += `</div>`;
-
-
-      
 
         $("div.Interests").append(html); //Append to Interests Section
     }
