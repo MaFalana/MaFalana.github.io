@@ -30,9 +30,10 @@ $(document).ready(function()
 
     function createProject(source)
     {
-        var html = `<div class="card shadow   mw-200 h-100 " style="width: 18.75rem;">`;
+      var html = `<div class="col">`;
+        html += `<div class="card shadow   mw-200 h-100 " style="width: 18.75rem;">`;
         html += `<img src=${source.image} class="card-img-top img-fluid" alt="Project ${source.id}" height="300"/>`;
-        html += `<div class="card-body">`;
+        html += `<div class="card-body" style="overflow: hidden;">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">${source.subtitle}</h6>`;
         html += `<p class="card-text">${source.description}</p>`;
@@ -50,6 +51,7 @@ $(document).ready(function()
         
         html += `</div>`;
         
+        html += `</div>`;
         html += `</div>`;
 
         $("div.Projects").append(html); //Append to Projects Section
@@ -73,20 +75,15 @@ $(document).ready(function()
 
     function createInterest(source)
     {
-        if (source.title == "NieR Replicant ver.1.22474487139...")
-        {
-            var html = `<div class="carousel-item card shadow active" style="width: 18.75rem;">`;
-        }
-        else
-        {
-            var html = `<div class="carousel-item card shadow" style="width: 18.75rem;">`;
-        }
+      var html = `<div class="col-md-3">`;
+        html += `<div class="card shadow" style="width: 18.75rem;">`;
         
-        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id}"/>`;
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id} height="200" width="200"/>`;
         html += `<div class="card-body">`;
         html += `<h5 class="card-title">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
         html += `<p class="card-text">${source.description}</p>`;
+        html += `</div>`;
         html += `</div>`;
         html += `</div>`;
 
