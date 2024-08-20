@@ -47,9 +47,9 @@ $(document).ready(function()
         html += `</ul>`;
 
         html += `<div class="hstack justify-content-end">`;
-        html += `<a class="btn btn-primary" href=${source.git} role="button">Source Code</a>`;
+        html += `<a class="btn btn-primary rounded-pill" href=${source.git} role="button">Source Code</a>`;
         html += `<div class="ms-2"></div>`;
-        html += `<a class="btn btn-primary" href=${source.demo} role="button">View Demo</a>`;
+        html += `<a class="btn btn-primary rounded-pill" href=${source.demo} role="button">View Demo</a>`;
         html += `</div>`;
 
         html += `</div>`;
@@ -75,13 +75,15 @@ $(document).ready(function()
         } 
     }
 
+    
+
     function createInterest(source)
     {
         var html = `<div class="card shadow" style="width: 25rem;">`;
         
         html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id} height="200" width="200"/>`;
         html += `<div class="card-body">`;
-        html += `<h5 class="card-title">${source.title}</h5>`;
+        html += `<h5 class="card-title ">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
         html += `<p class="card-text">${source.description}</p>`;
         html += `</div>`;
@@ -89,6 +91,35 @@ $(document).ready(function()
 
         $("div.Interests").append(html); //Append to Interests Section
     }
+
+    function displayReferences()
+    {
+        const url = "../projects.json";
+
+        $.getJSON(url, function(data) // Grabs references from JSON file
+        {
+            for(var i = 0; i < data.references.length; i++)
+            {
+              createReferral(data.references[i]); //assigns variable from json data
+            }
+        });
+    }
+    
+    function createReferral(source)
+    {
+        var html = `<div class="card shadow " style="width: 25rem;">`;
+        
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Reference ${source.id}" style="object-fit: contain; border-radius: 50%; opacity: 1;" height="50" width="50"/>`;
+        html += `<div class="card-body">`;
+        html += `<h5 class="card-title text-center">${source.name}</h5>`;
+        html += `<h6 class="card-subtitle mb-2 text-body-secondary text-center">${source.title}</h6>`;
+        html += `<p class="card-text">${source.testimony}</p>`;
+        html += `</div>`;
+        html += `</div>`;
+
+        $("div.References").append(html); //Append to References Section
+    }
+    
     
     function toggleDarkMode() {
         'use strict';
@@ -170,6 +201,7 @@ $(document).ready(function()
       
     displayProjects();
     displayInterests();
+    displayReferences();
     
     //toggleDarkMode();
 

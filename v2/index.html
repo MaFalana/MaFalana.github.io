@@ -16,6 +16,8 @@
   <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" integrity="sha256-SsJizWSIG9JT9Qxbiy8xnYJfjCAkhEQ0hihxRn7jt2M=" crossorigin="anonymous">
   <!-- Font Awesome CSS -->
   <script src="https://kit.fontawesome.com/632888dccb.js" crossorigin="anonymous"></script>
+ <!-- index CSS -->
+  <link href="../v2/index.css" rel="stylesheet" type="text/css">
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
   <script src="../v2/index.js" type="module"></script>
@@ -51,7 +53,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="nav nav-pills navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" href="#About">About</a>
             </li>
@@ -105,8 +107,9 @@
 
 
     <!-- ***** Interests Section ***** -->
-    
-    <div class="container container-fluid">
+    <section>
+
+      <div class="container container-fluid">
       <h2 id="Interests">Current Interests</h2>
       <div class="col ">
         <div class="row gap-5 justify-content-evenly Interests">
@@ -117,34 +120,58 @@
       
 
     </div>
+    </section>
+    
     
     
 
     <!-- ***** Contact Section ***** -->
-    
+
+    <!-- ***** References/Testimonials Section ***** -->
+    <section>
+
+      <div class="container container-fluid">
+      <h2 id="References">References/Testimonials</h2>
+      <div class="col ">
+        <div class="row gap-5 justify-content-evenly References">
+        <!-- Each div with the work__box class is an interest. -->
+
+      </div>
+      </div>
+      
+
+    </div>
+    </section>
 
    
     <!-- ***** Footer ***** -->
 
     <footer role="contentinfo" class="footer">
-      <div class="container d-inline-grid">
+      <div class="container vstack ">
         <div class="row  justify-content-center">
-          <ul class="list-group list-group-horizontal">
+          <ul class="hstack">
+            <div class="ms-auto"></div>
             <li class="list-group-item">
               <a href="https://github.com/MaFalana">
                 <img src="../images/github.svg" alt="Github"  width="40">
               </a>
             </li>
-        
+            
             <li class="list-group-item">
               <a href="https://www.linkedin.com/in/mfalana">
                 <img src="../images/linkedin.svg" alt="Linkedin"  width="40">
               </a>
             </li>
+            <div class="ms-auto"></div>
           </ul>
         </div>
-        
+        <div ></div>
+        <p class="justify-content-center">
+          © 2024 - Original Template designed &amp; developed by <a href="https://mafalana.github.io" class="link">Malik</a>.
+        </p>
       </div>
+
+      
     </footer>
 
   

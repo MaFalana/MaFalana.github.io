@@ -93,6 +93,24 @@
 
     ],
 
+    "references":[
+        {
+            "id": 0,
+            "name": "Nicholas Shook",
+            "title": "Attorney, Software Developer",
+            "image": "https://placehold.co/200x200",
+            "testimony": "Nisar is a fantastic UI developer and engineer. He helped our website become ARIA-compliant by enforcing accessibility standards in a thorough, test-driven way. We appreciated his clear communication and his awesome work product in our time spent together. I highly recommend booking Nisar for UI needs."
+        },
+
+        {
+            "id": 1,
+            "name": "Josef Kruckenberg",
+            "title": "Drupal Contributor",
+            "image": "https://placehold.co/200x200",
+            "testimony": "Working with Nisar was a great experience. His drive for clean aesthetics and his open communication style helped us collaborate closely on the solution. I appreciated him challenging my concept and implementing a solution that performs well using Gatsby.js. Nisar also performed API integration, design and frontend development leading the project to success in a very agile and quality appreciating manner."
+        }
+    ],
+
     "links":[
 
         {
