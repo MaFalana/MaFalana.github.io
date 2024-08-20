@@ -42,11 +42,13 @@ $(document).ready(function()
         {
             //html += `<li class="list-group-item">${source.tools[i]}</li>`; //assigns variable from json data
             html += `<img src=../images/${source.tools[i]}.svg alt="${source.tools[i]} Svg Icon" width="40"/>`;
+            html += `<div class="ms-1"></div>`;
         }
         html += `</ul>`;
-        html += `<div class="hstack">`;
+
+        html += `<div class="hstack justify-content-end">`;
         html += `<a class="btn btn-primary" href=${source.git} role="button">Source Code</a>`;
-        html += `<div class="ms-auto"></div>`;
+        html += `<div class="ms-2"></div>`;
         html += `<a class="btn btn-primary" href=${source.demo} role="button">View Demo</a>`;
         html += `</div>`;
 
