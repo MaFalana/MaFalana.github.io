@@ -81,7 +81,7 @@ $(document).ready(function()
     {
         var html = `<div class="card shadow" style="width: 25rem;">`;
         
-        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id} height="200" width="200"/>`;
+        html += `<img src=${source.image} class="card-img-top img-fluid" alt="Interest ${source.id}" height="200" width="200"/>`;
         html += `<div class="card-body">`;
         html += `<h5 class="card-title ">${source.title}</h5>`;
         html += `<h6 class="card-subtitle mb-2 text-body-secondary">Subtitle</h6>`;
@@ -198,6 +198,24 @@ $(document).ready(function()
         // Toggle theme when the function is called
         toggleTheme();
       }
+
+      function goToTop() 
+      {
+        const $backToTopButton = $(".back-to-top");
+        
+        const alterStyles = (isRendered) => {
+          $backToTopButton.css({
+            visibility: isRendered ? "visible" : "hidden",
+            opacity: isRendered ? 1 : 0,
+            transform: isRendered ? "scale(1)" : "scale(0)"
+          });
+        };
+      
+        $(window).on("scroll", function() {
+          const isBackToTopRendered = $(this).scrollTop() > 700;
+          alterStyles(isBackToTopRendered);
+        });
+      }
       
     displayProjects();
     displayInterests();
@@ -206,6 +224,8 @@ $(document).ready(function()
     //toggleDarkMode();
 
     $("#darkModeToggle").click(toggleDarkMode)
+
+    goToTop();
 
 
 });  // end of $(document).ready()

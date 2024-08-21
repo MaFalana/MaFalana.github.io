@@ -1,3 +1,40 @@
+/* ----- Back to Top ----- */
+
+.back-to-top {
+    position: fixed;
+    bottom: 4rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    background-color: hsla(var(--bs-primary-hsl));
+    border-radius: 50%;
+    z-index: 100;
+    visibility: hidden;
+    transition: all .24s;
+}
+
+.back-to-top__image {
+    height: 70%;
+}
+
+
+@media(max-width: 900px) {
+    .back-to-top {
+        right: 2rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .back-to-top {
+        right: 1rem;
+    }
+}
+
+
+/* ----- Navigation ----- */
 .nav__link {
     position: relative;
     display: inline-block;
@@ -26,4 +63,11 @@
     right: 0;
     height: 2px;
     background: var(--pink);
+}
+
+.card:hover 
+{
+    transform: scale(1.05);
+    transition: 0.5s ease-in-out all;
+    
 }
