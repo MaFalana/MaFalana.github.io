@@ -6,7 +6,7 @@
             "subtitle": "Mobile Application",
             "description": "Experience the world of manga like never before with this open-source manga reading application for iOS and iPadOS. Dive into a diverse library of manga titles from various genres and enjoy a seamless reading experience on your Apple devices. With its user-friendly interface and customizable features, this app is a must-have for manga enthusiasts seeking an immersive and enjoyable way to read their favorite stories on the go.",
             "image": ["../images/ledger.png"],
-            "tools": ["Swift"],
+            "tools": ["swift"],
             "git": "https://github.com/MaFalana/LEDGER-",
             "demo": "https://testflight.apple.com/join/947cRtnp"
         },
@@ -16,7 +16,7 @@
             "subtitle": "Java Application",
             "description": "Inspired by Microsoft's MS Paint, I sought out to recreate the familiar and user-friendly drawing experience while showcasing the programming concepts I learned throughout my semester in CSCI 2400. CS Paint provides a simple and intuitive interface for users to create and edit drawings. It offers various tools and features commonly found in drawing applications, allowing users to express their creativity and create artwork.",
             "image": ["../images/cs-paint.png"],
-            "tools": ["Java"],
+            "tools": ["java"],
             "git": "https://github.com/MaFalana/CS-Paint",
             "demo": ""
         },
@@ -26,7 +26,7 @@
             "subtitle": "Mobile Application",
             "description": "A color scanning app",
             "image": "../images/color.png",
-            "tools": ["Swift"],
+            "tools": ["swift"],
             "git": "https://github.com/MaFalana/What-s-That-Color-",
             "demo": ""
         },
@@ -36,7 +36,7 @@
             "subtitle": "Mobile Application",
             "description": "Multimedia scanning application",
             "image": "https://placehold.co/600x400",
-            "tools": ["Swift"],
+            "tools": ["swift"],
             "git": "https://github.com/MaFalana/Kazaam",
             "demo": ""
         },
@@ -46,7 +46,7 @@
             "subtitle": "C++ Application",
             "description": "A simple Mahjong game",
             "image": "../images/mahjong.png",
-            "tools": ["C++","ReactJs"],
+            "tools": ["c++","reactjs"],
             "git": "https://github.com/MaFalana/Mahjong-CS",
             "demo": "https://mafalana.github.io/Mahjong/"
         },
@@ -56,7 +56,7 @@
             "subtitle": "Web Application",
             "description": "Server-side music streaming application",
             "image": ["../images/mytunes.png"],
-            "tools": ["Php","Html","CSS"],
+            "tools": ["html","css","php"],
             "git": "https://github.com/MaFalana/Mytunes",
             "demo": "https://mafalana.github.io/Mytunes/"
         },
@@ -66,7 +66,7 @@
             "subtitle": "Web Application",
             "description": "Designed to be an immersive study tool with AI capabilities, used to create flash cards and quizzes for students, and matching games for memories",
             "image": "https://placehold.co/600x400",
-            "tools": ["MongoDB", "Html","CSS","Javascript","Typescript","Python"],
+            "tools": ["mongodb", "html","css","javascript","typescript","python"],
             "git": "https://github.com/MaFalana/QuizME",
             "demo": ""
         },
@@ -76,7 +76,7 @@
             "subtitle": "Web Application",
             "description": "Platform built to convert playlists from one music streaming service to another",
             "image": "https://placehold.co/600x400",
-            "tools": ["Html","CSS","Javascript","Python"],
+            "tools": ["html","css","javascript","python"],
             "git": "https://github.com/MaFalana/EZ-Shift",
             "demo": "https://mafalana.github.io/EZ-Shift/"
         },
@@ -86,7 +86,7 @@
             "subtitle": "Mobile Application",
             "description": "Book Scanning App for iOS",
             "image": "../images/BookClub.png",
-            "tools": ["Swift","JSON"],
+            "tools": ["swift","json"],
             "git": "https://github.com/MaFalana/BookClub",
             "demo": ""
         }
@@ -96,6 +96,14 @@
     "references":[
         {
             "id": 0,
+            "name": "Simeon Dunn",
+            "title": "CEO, Software Developer",
+            "image": "https://placehold.co/200x200",
+            "testimony": ""
+        },
+
+        {
+            "id": 1,
             "name": "Nicholas Shook",
             "title": "Attorney, Software Developer",
             "image": "https://placehold.co/200x200",
@@ -103,7 +111,7 @@
         },
 
         {
-            "id": 1,
+            "id": 2,
             "name": "Josef Kruckenberg",
             "title": "Drupal Contributor",
             "image": "https://placehold.co/200x200",

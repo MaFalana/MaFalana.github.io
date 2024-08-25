@@ -49,7 +49,13 @@ $(document).ready(function()
         html += `<div class="hstack justify-content-end">`;
         html += `<a class="btn btn-primary rounded-pill" href=${source.git} role="button">Source Code</a>`;
         html += `<div class="ms-2"></div>`;
-        html += `<a class="btn btn-primary rounded-pill" href=${source.demo} role="button">View Demo</a>`;
+        
+        if (source.demo != "")
+        {
+          html += `<a class="btn btn-primary rounded-pill" href=${source.demo} role="button">View Demo</a>`;
+        }
+        
+        
         html += `</div>`;
 
         html += `</div>`;

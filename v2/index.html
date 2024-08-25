@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Need to create a custom logo -->
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
   
   <title> Malik Falana | Portfolio v2 </title>
   
@@ -53,15 +53,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="nav nav-pills navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="nav nav-pills justify-content-end navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="#About">About</a>
+              <a class="nav-link" href="#About">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#Experience">Experience</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#Projects">Projects</a>
+              <a class="nav-link active" href="#Projects">Projects</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#Interests">Interests</a>
@@ -82,9 +82,29 @@
     
 
     <!-- ***** About Me Section ***** -->
-    <div data-bs-spy="scroll" data-bs-target="#scrollspy-1-navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="bg-body p-3 overflow-y-auto" tabindex="0" style="max-height: 300px;">
-      <h2 id="About">About Me</h2>
-      <a href="#About" class="fw-normal text-decoration-none ms-1">#</a>
+
+    <div class="container">
+      <div class="row">
+        <h2 id="About">About Me</h2>
+        <div class="about__content">
+         
+          <div class="about__photo-container">
+            <!-- Add a nice photo of yourself -->
+            <img class="about__photo" src="../images/Malik.png" alt="" />
+           <img src="../images/Malik.png" class="card-img-top img-fluid" alt="Reference ${source.id}" style="object-fit: scale-down; border-radius: 50%; opacity: 1;" height="50" width="50"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class = "vstack gap-2">
+           <!-- Replace the below paragraph with info about yourself -->
+           <p class="card-text"> Hello, I’m Malik Falana, a Computer Science major currently pursuing my Bachelor’s degree at Indiana University–Purdue University Indianapolis. With a passion for design and a focus on iOS development, I’m eagerly seeking internship and career opportunities to expand my knowledge and apply my skills in implementing REST API based services and mobile development. I’m set to graduate in 2024, and my coursework has covered a wide range of topics, from Data Structures to Server Side Programming, equipping me with a diverse skill set. Feel free to reach out to me, I’m excited to explore new opportunities and collaborate on innovative projects in the world of computer science.</p>
+          <a href="#" class="btn btn-light">My Resume</a> <!-- Link to resume -->
+        </div>
+      </div>
+
+
     </div>
 
 
@@ -130,6 +150,13 @@
     
 
     <!-- ***** Contact Section ***** -->
+      <div class="row" id="Contact">
+        <h2>Get in Touch</h2>
+        <div class="contact__info">
+          <!-- Replace the email with yours -->
+          <a href="mailto:malikfalana@icloud.com" class="btn btn-light">malikfalana@icloud.com</a>
+        </div>
+      </div>
 
     <!-- ***** References/Testimonials Section ***** -->
     <section>

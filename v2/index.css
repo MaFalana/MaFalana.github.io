@@ -1,3 +1,10 @@
+/* ----- IDK Scroll Animations ----- */
+.card {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
 /* ----- Back to Top ----- */
 
 .back-to-top {
